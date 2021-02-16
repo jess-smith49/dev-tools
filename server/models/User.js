@@ -20,7 +20,14 @@ const UserSchema = new Schema(
         password: {
             type: String,
             required: true
-        }
+        },
+
+        sets: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Sets'
+            }
+        ]
     }
 );
 
