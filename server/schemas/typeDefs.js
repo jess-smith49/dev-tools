@@ -8,6 +8,8 @@ typeDefs = gql `
         email: String!
     }
 
+    
+
     type Query: {
         me: User
         users: [User]
@@ -16,6 +18,7 @@ typeDefs = gql `
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
+        
     }
     
     `
