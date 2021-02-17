@@ -15,7 +15,7 @@ typeDefs = gql `
         card: [Card]
     }
 
-    type Card{
+    type Card {
         _id: ID
         question: String!
         answer: String!
@@ -30,8 +30,8 @@ typeDefs = gql `
         addUser(username: String!, email: String!, password: String!): Auth
         addSet(setName: String!): User
         addCard(question: String!, answer: String!): User
-        removeSet(): User
-        removeCard(): User
+        removeSet(setId: ID!): User
+        removeCard(cardId: ID!): User
     }
     
     `
