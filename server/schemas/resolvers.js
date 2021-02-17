@@ -39,6 +39,54 @@ const resolvers = {
 
                 return {token, user};
             },
+
+            addSet: async(parent, {setData}, context) => {
+                if(context.user){
+                    const updatedUser = await User.findOneAndUpdate(
+                        {_id: context.user_id},
+                        {$push: {sets: setData}},
+                        {new: true}
+                    )
+                }
+                return updatedUser;
+            },
+
+            addCard: async(parent, {cardData}, context) => {
+                if(context.user){
+                    const updatedSet = await Set.findOneAndUpdate(
+                        {_id: context.user._id},
+                        {$push: {cards: cardData}},
+                        {new: true}
+                    )
+                return updatedSet;
+                }
+                
+            },
+
+            removeSet: async(parent, {setData}, context) => {
+                if(context.user){
+                    const updatedUser = await User.findOneAndUpdate(
+                        {_id: context.user_id},
+                        {$pull: {sets: setData}},
+                        {new: true}
+                    );
+
+                    return updatedUser;
+                }
+            },
+
+            removeCard: async(parent, {cardData}, context) => {
+                if(context.user) {
+                    const updatedSet = await Set.findOneAndUpdate(
+                        {_id: context.user_id},
+                        {$pull: {cards: cardData}},
+                        {new: true}
+                    )
+                return updatedSet;
+
+                }
+            }
+
         }
 };
 

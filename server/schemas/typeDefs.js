@@ -6,6 +6,7 @@ typeDefs = gql `
         _id: ID
         username: String!
         email: String!
+        sets: [Sets]
     }
 
     type Set {
