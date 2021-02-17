@@ -5,6 +5,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from 'apollo-boost';
 //component imports
 import Header from './components/Header';
+import Footer from './components/Footer'
 
 const client = new ApolloClient({
   request: operation => {
@@ -24,7 +25,9 @@ function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <Header />
-
+        <main>
+        </main>
+        <Footer />
       </div>
     </ApolloProvider>
   );
