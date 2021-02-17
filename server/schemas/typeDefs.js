@@ -3,23 +3,24 @@ const { typeDefs } = require('.');
 
 typeDefs = gql `
     type User {
-        _id: ID
+        _id: ID!
         username: String!
         email: String!
         sets: [Sets]
     }
 
     type Set {
-        _id: ID
+        _id: ID!
         setName: String:
         card: [Card]
     }
 
     type Card {
-        _id: ID
+        _id: ID!
         question: String!
         answer: String!
     }
+
     type Query: {
         me: User
         users: [User]
@@ -28,12 +29,14 @@ typeDefs = gql `
     type Mutation {
         login(username: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addSet(setName: String!): User
-        addCard(question: String!, answer: String!): User
-        removeSet(setId: ID!): User
-        removeCard(cardId: ID!): User
+        addSet(setName: String!): Set
+        addCard(question: String!, answer: String!): Set
+        removeSet(setId: ID!): Set
+        removeCard(cardId: ID!): Set
     }
     
     `
 module.exports = typeDefs;
-    
+
+
+//return the data itself: rule of thumb

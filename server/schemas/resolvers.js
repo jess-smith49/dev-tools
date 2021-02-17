@@ -40,15 +40,16 @@ const resolvers = {
                 return {token, user};
             },
 
-            addSet: async(parent, {setData}, context) => {
+            addSet: async(parent, {setName}, context) => {
                 if(context.user){
                     const updatedUser = await User.findOneAndUpdate(
                         {_id: context.user_id},
-                        {$push: {sets: setData}},
+                        {$push: {set: setName}},
                         {new: true}
                     )
-                }
                 return updatedUser;
+                }
+              
             },
 
             addCard: async(parent, {cardData}, context) => {
