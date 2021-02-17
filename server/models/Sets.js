@@ -10,7 +10,7 @@ const SetsSchema = (
             trim: true,
         },
 
-        card: [cardSchema]
+        cards: [cardSchema]
     }
 )
 
