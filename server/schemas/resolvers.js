@@ -14,7 +14,8 @@ const resolvers = {
         },
         user: async (parent, { username }) => {
             return User.findOne({ username })
-              .populate('sets');
+              .populate('sets')
+              .select('-__v -password');
             },
 
         
@@ -29,13 +30,13 @@ const resolvers = {
 
         card: async (parent, arg, context) => {
             if (context.user) {
-                const card = await Card.findById(contex.set._id).populate({
+                const card = await Card.findById(contex.card._id).populate({
                     question:'question',
                     answer:'answer'
                 });
                 return card;
             }
-        }
+        },
 
     Mutation: {
         //login mutation
