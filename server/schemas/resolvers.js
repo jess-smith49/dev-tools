@@ -12,7 +12,30 @@ const resolvers = {
                     return user;
             }
         },
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
+              .populate('sets');
+            },
+
+        
+        set: async (parent, arg, context) => {
+            if (context.user) {
+                const set = await Set.findById(context.set._id).populate({
+                  set:'setName'
+                });
+            return set;
+        }
     },
+
+        card: async (parent, arg, context) => {
+            if (context.user) {
+                const card = await Card.findById(contex.set._id).populate({
+                    question:'question',
+                    answer:'answer'
+                });
+                return card;
+            }
+        }
 
     Mutation: {
         //login mutation
