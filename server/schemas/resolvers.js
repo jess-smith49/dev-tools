@@ -25,7 +25,7 @@ const resolvers = {
                   set:'setName'
                 });
             return set;
-        }
+        }}
     },
 
         card: async (parent, arg, context) => {
