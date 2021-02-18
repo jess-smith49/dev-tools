@@ -11,7 +11,7 @@ typeDefs = gql `
 
     type Set {
         _id: ID!
-        setName: String:
+        setName: String!
         card: [Card]
     }
 

@@ -52,11 +52,15 @@ const resolvers = {
               
             },
 
-            addCard: async(parent, {cardData}, context) => {
+            addCard: async(parent, {question, answer}, context) => {
                 if(context.user){
+                    const newCard = await Card.create(
+                        {question: question, answer: answer},
+                        {new: true}
+                    )
                     const updatedSet = await Set.findOneAndUpdate(
                         {_id: context.user._id},
-                        {$push: {cards: cardData}},
+                        {$push: {card: newCard}},
                         {new: true}
                     )
                 return updatedSet;
@@ -64,11 +68,11 @@ const resolvers = {
                 
             },
 
-            removeSet: async(parent, {setData}, context) => {
+            removeSet: async(parent, {setName}, context) => {
                 if(context.user){
                     const updatedUser = await User.findOneAndUpdate(
                         {_id: context.user_id},
-                        {$pull: {sets: setData}},
+                        {$pull: {sets: setName}},
                         {new: true}
                     );
 
@@ -76,11 +80,16 @@ const resolvers = {
                 }
             },
 
-            removeCard: async(parent, {cardData}, context) => {
+            removeCard: async(parent, {question, answer}, context) => {
                 if(context.user) {
+                    const deleteCard = await Card.findOneAndDelete(
+                        {question: question, answer: answer},
+                        {$pull: {id: card._id}}
+                        
+                    )
                     const updatedSet = await Set.findOneAndUpdate(
                         {_id: context.user_id},
-                        {$pull: {cards: cardData}},
+                        {$pull: {cards: deleteCard}},
                         {new: true}
                     )
                 return updatedSet;
