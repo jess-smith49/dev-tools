@@ -27,10 +27,15 @@ export const ADD_USER = gql `
 export const ADD_SET = gql `
     mutation addSet($setName: String!){
         addSet(setName: $setName) {
-            card {
+            set {
                 _id
-                question
-                answer
+                setName
+                    card {
+                    _id
+                    question
+                    answer
+                }
+            
             }
         }
     }
