@@ -13,7 +13,8 @@ import {
 import Header from './components/Header';
 import Footer from './components/Footer'
 //page imports
-import SignUp from './pages/SignupForm';
+import Signup from './pages/SignupForm';
+import Landing from './pages/Landing';
 
 const client = new ApolloClient({
   request: operation => {
@@ -33,8 +34,11 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Switch>
+          <Route path='/signup'>
+            <Signup />
+          </Route>
           <Route path='/'>
-              <SignUp />
+              <Landing />
           </Route>
         </Switch>
       </Router>
