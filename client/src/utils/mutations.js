@@ -26,8 +26,17 @@ export const ADD_USER = gql `
 
 export const ADD_SET = gql `
     mutation addSet($setName: String!){
-        addSet(setName: $setName){
-            RETURN SET
+        addSet(setName: $setName) {
+            set {
+                _id
+                setName
+                    card {
+                    _id
+                    question
+                    answer
+                }
+            
+            }
         }
     }
 `
@@ -35,7 +44,15 @@ export const ADD_SET = gql `
 export const ADD_CARD = gql `
     mutation addCard($question: String!, $answer: String!){
         addCard(question: $question, answer: $answer){
-            RETURN SET
+            set {
+                _id
+                setName
+                card {
+                    _id
+                    question
+                    answer
+                }
+            }
         }
     }
     `
@@ -43,7 +60,15 @@ export const ADD_CARD = gql `
 export const REMOVE_SET = gql `
     mutation removeSet($setName: String!){
         removeSet(setName: $setName){
-            RETURN SET
+            set {
+                _id
+                setName
+                card {
+                    _id
+                    question 
+                    answer
+                }
+            }
         }
     }
 `
@@ -51,7 +76,15 @@ export const REMOVE_SET = gql `
 export const REMOVE_CARD = gql `
     mutation removeCard($question: String!, $answer: String!){
         removeCard(question: $question, answer: $answer){
-            RETURN SET
+            set {
+                _id
+                setName 
+                card {
+                    _id
+                    question
+                    answer
+                }
+            }
         }
     }
 `
