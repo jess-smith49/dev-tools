@@ -1,8 +1,10 @@
 import decode from 'jwt-decode';
 
 class AuthService {
-    //not sure with this top part for getting prfile in example
-
+    getProfile() {
+        return decode(this.getToken());
+      }
+    
     loggedIn(){
         const token = this.getToken();
         return !!token && !this.isTokenExpired(token);

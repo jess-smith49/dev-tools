@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import {useMutation} from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
 import { LOGIN_USER } from '../../utils/mutations';
@@ -41,6 +42,8 @@ const Login = props => {
 
     return(
     <div>
+        <Link to="/signup">Sign-up instead</Link>
+        
         <h2>Login Below</h2>
         <form onSubmit={handleFormSubmit}>
               <input

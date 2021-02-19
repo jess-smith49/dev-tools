@@ -1,5 +1,6 @@
-const {User} = require('../models');
+const {User, Sets } = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
        // me query
@@ -11,6 +12,7 @@ const resolvers = {
                     .select('-__v-password')
                     return user;
             }
+            throw new AuthenticationError("Not logged in");
         },
     },
 
@@ -58,7 +60,7 @@ const resolvers = {
                         {question: question, answer: answer},
                         {new: true}
                     )
-                    const updatedSet = await Set.findOneAndUpdate(
+                    const updatedSet = await Sets.findOneAndUpdate(
                         {_id: context.user._id},
                         {$push: {card: newCard}},
                         {new: true}
@@ -87,7 +89,7 @@ const resolvers = {
                         {$pull: {id: card._id}}
                         
                     )
-                    const updatedSet = await Set.findOneAndUpdate(
+                    const updatedSet = await Sets.findOneAndUpdate(
                         {_id: context.user_id},
                         {$pull: {cards: deleteCard}},
                         {new: true}

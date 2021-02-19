@@ -8,7 +8,7 @@ export default function Header() {
             return (
                 <ul>
                     <li>
-                        <a href='/' onclick={() => Auth.logout()}>
+                        <a href='/' onClick={() => Auth.logout()}>
                             Logout
                         </a>
                     </li>
