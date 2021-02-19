@@ -1,6 +1,9 @@
-//imports
-//import addset and remove set mutations
+// import React from 'react';
 
-//use mutations to push set to the data in the home page
+// function Set() {
+//     // functionality to add cards to set
 
-//html return
+//     return (
+//         <p>looped card elements goes here</p>
+//     )
+// }
