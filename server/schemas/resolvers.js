@@ -16,6 +16,7 @@ const resolvers = {
             return User.findOne({ username })
               .populate('sets')
               .select('-__v -password');
+              .select('-__v -password');
             },
 
         
