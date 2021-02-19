@@ -2,9 +2,9 @@
   "name": "userbase",
   "version": "1.0.0",
   "description": "Simple GraphQL server",
-  "main": "server.js",
+  "main": "test_server.js",
   "scripts": {
-    "dev:server": "nodemon server.js",
+    "dev:server": "nodemon test_server.js",
     "json:server": "json-server --watch data.json"
   },
   "author": "Brad Traversy",

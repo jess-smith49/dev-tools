@@ -1,7 +1,8 @@
-// 1) npm install, 
-// 2) in one terminal "npm run json:server", 
-// 3) in a second terminal "npm run dev:server"
-// 4) go to localhost:4000/graphgl
+// 1) cd in to dev-tools/server/test_server
+// 2) npm install, 
+// 3) in one terminal "npm run json:server", 
+// 4) in a second terminal "npm run nodemon test_server.js"
+// 5) go to localhost:4000/graphgl
 // now it acts like insomnia 
 
 
