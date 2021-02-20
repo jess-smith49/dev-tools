@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose')
 const cardSchema = require('./Card');
 
-const SetsSchema = (
+const SetsSchema = new Schema (
     {
         setName: {
             type: String,

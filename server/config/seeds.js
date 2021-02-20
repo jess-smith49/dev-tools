@@ -9,7 +9,7 @@ db.once('open', async () => {
   await Sets.deleteMany();
 
     //add seed sets
-  const Sets = await Sets.insertMany([
+  const sets = await Sets.insertMany([
     { setName: 'Html' },
     { setName: 'JavaScript' },
     { setName: 'React' },
