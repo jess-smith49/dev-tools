@@ -21,7 +21,7 @@ typeDefs = gql `
         answer: String!
     }
 
-    type Query: {
+    type Query {
         me: User
     }
 
