@@ -23,9 +23,11 @@ const Login = props => {
         e.preventDefault();
 
         try{
+            console.log(formState);
             const{data} = await Login({
                 variables: {...formState}
             });
+            console.log(data);
 
             Auth.login(data.login.token);
         }
