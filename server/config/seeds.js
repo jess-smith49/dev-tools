@@ -16,53 +16,26 @@ db.once('open', async () => {
 
   const card = await Card.insertMany([
     {
-        question: '',
-        answer: ''
+        question: 'What is HTML?',
+        answer: 'HTML is short for HyperText Markup Language and is the language of the World Wide Web.'
     },
     {
-        question: '',
-        answer: ''
+        question: 'What is JavaScript?',
+        answer: 'JavaScript is a client-side as well as server side scripting language that can be inserted into HTML pages and is understood by web browsers.'
     },
     {
-        question: '',
-        answer: ''
+        question: 'Which company developed JavaScript?',
+        answer: 'Netscape is the software company who developed JavaScript.'
     },
     {
-        question: '',
-        answer: ''
+        question: 'What is React?',
+        answer: 'React. js is an open-source JavaScript library that is used for building user interfaces specifically for single-page applications.'
     },
     {
-        question: '',
-        answer: ''
+        question: 'Who developed React?',
+        answer: 'Jordan Walke, a software engineer at Facebook.'
     },
-    {
-        question: '',
-        answer: ''
-    },
-    {
-        question: '',
-        answer: ''
-    },
-    {
-        question: '',
-        answer: ''
-    },
-    {
-        question: '',
-        answer: ''
-    },
-    {
-        question: '',
-        answer: ''
-    },
-    {
-        question: '',
-        answer: ''
-    },
-    {
-        question: '',
-        answer: ''
-    }
+ 
   ]);
 
   console.log('cards seeded');
@@ -70,7 +43,7 @@ db.once('open', async () => {
   await User.deleteMany();
 
   await User.create({
-    username: 'Pamm',
+    username: 'Pam',
     email: 'pamela@testmail.com',
     password: 'password12345',
   });
