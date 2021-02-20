@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose')
 const cardSchema = require('./Card');
 
-const SetsSchema = new Schema (
+const setsSchema = new Schema(
     {
         setName: {
             type: String,
@@ -10,9 +10,9 @@ const SetsSchema = new Schema (
             trim: true,
         },
 
-        cards: [cardSchema]
+        cards: [cardSchema.schema]
     }
 )
 
-const Sets = model('Sets', SetsSchema);
+const Sets = model('Sets', setsSchema);
 module.exports = Sets;

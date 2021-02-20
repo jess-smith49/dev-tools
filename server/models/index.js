@@ -1,5 +1,5 @@
 const User = require('./User');
 const Sets = require('./Sets');
-const Cards = require('./Card');
+const Card = require('./Card');
 
-module.exports = { User, Sets, Cards };
+module.exports = { User, Sets, Card };
