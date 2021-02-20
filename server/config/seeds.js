@@ -1,9 +1,14 @@
+// linking database
 const db = require('./connection');
+// linking user models
 const { User, Card, Sets } = require('../models');
 
+// once established
 db.once('open', async () => {
+  // deleted current sets
   await Sets.deleteMany();
 
+    //add seed sets
   const Sets = await Sets.insertMany([
     { setName: 'Html' },
     { setName: 'JavaScript' },
@@ -12,8 +17,10 @@ db.once('open', async () => {
 
   console.log('sets seeded');
 
+  // delete current cards
   await Card.deleteMany();
 
+  // add seeded cards
   const card = await Card.insertMany([
     {
         question: 'What is HTML?',
@@ -40,8 +47,10 @@ db.once('open', async () => {
 
   console.log('cards seeded');
 
+  // deleted current users.
   await User.deleteMany();
 
+  // add seed users
   await User.create({
     username: 'Pam',
     email: 'pamela@testmail.com',
