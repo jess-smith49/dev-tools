@@ -1,0 +1,47 @@
+$blue: #449DD1;
+$yellow: #FFEB50;
+$green: #00CF9C;
+$gradient: linear-gradient(to right, $yellow, $green, $blue );
+$fancy-font: 'Righteous', cursive;
+$pop-shadow: 0 2px 2px #4486d1, 
+-2px 5px 1px #44b5d1, 
+-6px 11px 0px #44c0d1;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap&effect=anaglyph');
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: $fancy-font;
+}
+
+.apply-grad {
+    background-image: $gradient;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 0;
+}
+
+.header {
+    &-container {
+        text-align: center;
+        padding-top: 10%;
+
+        h1 {
+            font-size: 45pt;
+            color: $yellow;
+            text-shadow: $pop-shadow;
+        }
+    }
+}
+
+.footer {
+
+     &-container {
+        position: fixed;
+        bottom: 0;
+    }
+}

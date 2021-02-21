@@ -1,13 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap&effect=anaglyph");
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-family: "Righteous", cursive;
+}
+
+.apply-grad {
+  background-image: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
+  width: 100vw;
+  height: 100vh;
+  padding-top: 0;
+}
+
+.header-container {
+  text-align: center;
+  padding-top: 10%;
+}
+.header-container h1 {
+  font-size: 45pt;
+  color: #FFEB50;
+  text-shadow: 0 2px 2px #4486d1, -2px 5px 1px #44b5d1, -6px 11px 0px #44c0d1;
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
 }

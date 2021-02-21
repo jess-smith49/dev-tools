@@ -1,4 +1,4 @@
-import './App.css';
+import "tailwindcss/tailwind.css"
 import React from 'react';
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from 'apollo-boost';
@@ -13,7 +13,6 @@ import Header from './components/Header';
 import Footer from './components/Footer'
 //page imports
 import Signup from './pages/SignupForm';
-import Landing from './pages/Landing';
 import Login from './pages/LoginForm';
 
 const client = new ApolloClient({
@@ -32,15 +31,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+        <div className="apply-grad container">
       <Router>
         <Header />
-        <Switch>
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/' component={Landing} />         
-        </Switch>
+        <div className="cta-text"> The ulitmate resource for learning web developmemt at your own pace. Create your account to start learning today! </div>
+          <Switch>
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
       </Router>
       <Footer />
+        </div>
     </ApolloProvider>
   );
 }

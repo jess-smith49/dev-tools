@@ -34,7 +34,7 @@ export default function Header() {
     return(
         <header className="header-container">
             <div className="flex-wrap">
-                <h1>Dev Tools</h1>
+                <h1 className="h-lg">Dev Learn</h1>
             </div>
             <nav>
                 {showNavigation()}
