@@ -13,6 +13,7 @@ const SignUp = () => {
     const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleChange = e => {
+        console.log(e.target)
         const { name, value } = e.target;
 
         setFormState({
@@ -28,8 +29,8 @@ const SignUp = () => {
           const { data } = await addUser({
             variables: { ...formState }
           });
-          console.log(data);
           Auth.login(data.addUser.token);
+          console.log(data.addUser.token)
     
         } catch (err) {
           console.error(err);
@@ -57,6 +58,7 @@ const SignUp = () => {
                         name="username"
                         type="username"
                         id="username"
+                        value={formState.username}
                         onChange={handleChange}
                     />
                     <input
@@ -65,6 +67,7 @@ const SignUp = () => {
                         name="email"
                         type="email"
                         id="email"
+                        value={formState.email}
                         onChange={handleChange}
                     />
                     <input
@@ -73,6 +76,7 @@ const SignUp = () => {
                         name="password"
                         type="password"
                         id="password"
+                        value={formState.password}
                         onChange={handleChange}
                     />
 
