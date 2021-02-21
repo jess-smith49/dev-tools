@@ -3,12 +3,13 @@ $yellow: #FFEB50;
 $green: #00CF9C;
 $gradient: linear-gradient(to right, $yellow, $green, $blue );
 $fancy-font: 'Righteous', cursive;
+$reg-text: 'Roboto', sans-serif;
 $pop-shadow: 0 2px 2px #4486d1, 
 -2px 5px 1px #44b5d1, 
 -6px 11px 0px #44c0d1;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap&effect=anaglyph');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
 
 body {
     margin: 0;
@@ -34,6 +35,35 @@ h1 {
             font-size: 45pt;
             color: $yellow;
             text-shadow: $pop-shadow;
+        }
+    }
+}
+
+nav {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.cta {
+    width: 50%;
+    height: 30pt;
+    
+    &-btn {
+        list-style: none;
+        background-color: rgba(255,255,255,0.4);
+        color: $blue;
+        border-radius: 15px;
+        margin: 10pt;
+        font-family: $reg-text;
+        font-size: 15pt;
+        padding: 10px;
+        
+        a {
+            text-decoration: none;
+
+             &:visited {
+                 color: $blue;
+             }
         }
     }
 }

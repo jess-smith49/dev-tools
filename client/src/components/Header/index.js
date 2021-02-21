@@ -16,13 +16,13 @@ export default function Header() {
             ) 
         } else {
             return (
-                <ul>
-                    <li>
+                <ul className="cta">
+                    <li className="cta-btn">
                         <Link to="/signup">
                             Signup
                         </Link>
                     </li>
-                    <li>
+                    <li className="cta-btn" >
                         <Link to="/login">
                             Login
                         </Link>

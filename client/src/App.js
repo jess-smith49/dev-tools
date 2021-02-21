@@ -31,17 +31,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+       <Router>
         <div className="apply-grad container">
-      <Router>
         <Header />
         <div className="cta-text"> The ulitmate resource for learning web developmemt at your own pace. Create your account to start learning today! </div>
           <Switch>
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
           </Switch>
+        </div>
       </Router>
       <Footer />
-        </div>
     </ApolloProvider>
   );
 }
