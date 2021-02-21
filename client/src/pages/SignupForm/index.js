@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from '../../utils/auth';
-import {ADD_USER} from '../../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
+import Header from '../../components/Header'
 
 
 
@@ -24,78 +25,81 @@ const SignUp = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-    
+
         try {
-          const { data } = await addUser({
-            variables: { ...formState }
-          });
-          Auth.login(data.addUser.token);
-          console.log(data.addUser.token)
-    
+            console.log(formState);
+            const { data } = await addUser({
+                variables: { ...formState }
+            });
+            console.log(data);
+            Auth.login(data.addUser.token);
+
         } catch (err) {
-          console.error(err);
+            console.error(err);
         }
-    
+
         setFormState({
-          username: '',
-          email: '',
-          password: '',
+            username: '',
+            email: '',
+            password: '',
         });
-      };
-    
+    };
+
 
 
     return (
-        <div>
-            <Link to="/login">Login instead</Link>
-
-            <h2>Sign Up Below</h2>
-            <form onSubmit={handleFormSubmit}>
-                <div>
-                    <input
-                        className="form-input"
-                        placeholder="Your username"
-                        name="username"
-                        type="username"
-                        id="username"
-                        value={formState.username}
-                        onChange={handleChange}
-                    />
-                    <input
-                        className="form-input"
-                        placeholder="Your email"
-                        name="email"
-                        type="email"
-                        id="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                    />
-                    <input
-                        className="form-input"
-                        placeholder="******"
-                        name="password"
-                        type="password"
-                        id="password"
-                        value={formState.password}
-                        onChange={handleChange}
-                    />
-
-                    <button type="submit">Finish Signup</button>
+        <section>
+            <Header />
+            <div className="form">
+                <div className="form-container">
+                    <h2>Sign Up Below</h2>
+                    <form onSubmit={handleFormSubmit}>
+                        <div>
+                            <input
+                                className="form-input"
+                                placeholder="Your username"
+                                name="username"
+                                type="username"
+                                id="username"
+                                onChange={handleChange}
+                            />
+                            <br />
+                            <input
+                                className="form-input"
+                                placeholder="Your email"
+                                name="email"
+                                type="email"
+                                id="email"
+                                onChange={handleChange}
+                            />
+                            <br />
+                            <input
+                                className="form-input"
+                                placeholder="******"
+                                name="password"
+                                type="password"
+                                id="password"
+                                onChange={handleChange}
+                            />
+                            <br />
+                            <button type="submit">Finish Signup</button>
+                        </div>
+                    </form>
+                    {error && <div>Something Went Wrong</div>}
                 </div>
-            </form>
-            {error && <div>Something Went Wrong</div>}
-        </div>
+                </div>
+        </section >
     )
 
     // return (
     //     <section className="signup-container">
-    //         <form>
-    //             <input name="email-input" className="form-input" placeholder="Enter your email here"></input>
+                //         <form>
+                    //             <input name="email-input" className="form-input" placeholder="Enter your email here"></input>
 
-    //             <input name="user-input" className="form-input" placeholder="Create a unique username"></input> 
+    //             <input name="user-input" className="form-input" placeholder="Create a unique username"></input>
 
-    //             <input name="pass-input" className="form-input" placeholder="Create a unique password"></input> 
-                
+    //             <input name="pass-input" className="form-input" placeholder="Create a unique password"></input>
+
     //             <button type="submit">Get Learning!</button>
 
     //         </form>
