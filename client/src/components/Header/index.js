@@ -32,13 +32,13 @@ export default function Header() {
         }
     }
     return(
-        <header className="header-container">
+        <header>
             <div className="flex-wrap">
-                <h1>Dev Tools</h1>
-            </div>
+                <h1 className="h-lg">Dev Learn</h1>
             <nav>
                 {showNavigation()}
             </nav>
+            </div>
         </header>
     )
 };

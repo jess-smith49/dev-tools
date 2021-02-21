@@ -1,4 +1,4 @@
-import './App.css';
+import "tailwindcss/tailwind.css"
 import React from 'react';
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from 'apollo-boost';
@@ -9,11 +9,10 @@ import {
   Link
 } from 'react-router-dom';
 //component imports
-import Header from './components/Header';
-import Footer from './components/Footer'
+import Landing from './pages/Landing';
+import Footer from './components/Footer';
 //page imports
 import Signup from './pages/SignupForm';
-import Landing from './pages/Landing';
 import Login from './pages/LoginForm';
 
 const client = new ApolloClient({
@@ -32,13 +31,20 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Header />
+       <Router>
+        <div>
         <Switch>
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/' component={Landing} />         
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <Landing />
+          </Route>
         </Switch>
+        </div>
       </Router>
       <Footer />
     </ApolloProvider>
