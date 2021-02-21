@@ -8,41 +8,43 @@ h1 {
 }
 
 .apply-grad {
-  background-image: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
+  background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
   width: 100vw;
   height: 100vh;
-  padding-top: 0;
-}
-
-.header-container {
-  text-align: center;
-  padding-top: 10%;
-}
-.header-container h1 {
-  font-size: 45pt;
-  color: #FFEB50;
-  text-shadow: 0 2px 2px #4486d1, -2px 5px 1px #44b5d1, -6px 11px 0px #44c0d1;
-}
-
-nav {
   display: flex;
   align-content: center;
   justify-content: center;
+  overflow: auto;
 }
 
 .cta {
-  width: 50%;
-  height: 30pt;
+  padding: 10%;
+  text-align: center;
+}
+.cta-title {
+  font-size: 35pt;
+  color: #FFEB50;
+  text-shadow: 0 2px 2px #4486d1, -2px 5px 1px #44b5d1, -6px 11px 0px #44c0d1;
+}
+.cta-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 18pt;
+  padding-top: 10%;
+  line-height: 1.5em;
+}
+.cta-buttons {
+  margin-top: 40%;
 }
 .cta-btn {
   list-style: none;
   background-color: rgba(255, 255, 255, 0.4);
   color: #449DD1;
   border-radius: 15px;
-  margin: 10pt;
+  margin: 20pt;
   font-family: "Roboto", sans-serif;
   font-size: 15pt;
   padding: 10px;
+  box-shadow: 10px 10px 8px #000;
 }
 .cta-btn a {
   text-decoration: none;
@@ -50,8 +52,33 @@ nav {
 .cta-btn a:visited {
   color: #449DD1;
 }
+.cta-btn:hover {
+  box-shadow: 3px 5px 8px #000 inset;
+}
 
 .footer-container {
   position: fixed;
   bottom: 0;
+}
+
+@media only screen and (min-width: 414px) {
+  .cta-buttons {
+    margin-top: 20%;
+  }
+}
+@media only screen and (min-width: 799px) {
+  .cta-title {
+    font-size: 50pt;
+  }
+  .cta-text {
+    padding-top: 0;
+  }
+}
+@media only screen and (min-width: 1228px) {
+  .cta-title {
+    font-size: 75pt;
+  }
+  .cta-text {
+    font-size: 55pt;
+  }
 }

@@ -7,6 +7,7 @@ $reg-text: 'Roboto', sans-serif;
 $pop-shadow: 0 2px 2px #4486d1, 
 -2px 5px 1px #44b5d1, 
 -6px 11px 0px #44c0d1;
+//media breakpoints
 
 
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
@@ -20,50 +21,57 @@ h1 {
 }
 
 .apply-grad {
-    background-image: $gradient;
+    background: $gradient;
     width: 100vw;
     height: 100vh;
-    padding-top: 0;
-}
-
-.header {
-    &-container {
-        text-align: center;
-        padding-top: 10%;
-
-        h1 {
-            font-size: 45pt;
-            color: $yellow;
-            text-shadow: $pop-shadow;
-        }
-    }
-}
-
-nav {
     display: flex;
     align-content: center;
     justify-content: center;
+    overflow: auto;
 }
+
 .cta {
-    width: 50%;
-    height: 30pt;
+    padding: 10%;
+    text-align: center;
+    &-title {
+        font-size: 35pt;
+        color: $yellow;
+        text-shadow: $pop-shadow;
+        
+    }
     
+    &-text {
+        font-family: $reg-text;
+        font-size: 18pt;
+        padding-top: 10%;
+        line-height: 1.5em;
+        //text-shadow: 10px 10px 8px #000;
+    }
+
+    &-buttons {
+        margin-top: 40%;
+    }
     &-btn {
         list-style: none;
         background-color: rgba(255,255,255,0.4);
         color: $blue;
         border-radius: 15px;
-        margin: 10pt;
+        margin: 20pt;
         font-family: $reg-text;
         font-size: 15pt;
         padding: 10px;
-        
+        box-shadow: 10px 10px 8px #000;
         a {
             text-decoration: none;
 
              &:visited {
                  color: $blue;
              }
+        }
+
+        &:hover {
+            box-shadow: 3px 5px 8px #000 inset;
+           
         }
     }
 }
@@ -73,5 +81,45 @@ nav {
      &-container {
         position: fixed;
         bottom: 0;
+    }
+}
+
+
+//media queries
+
+//large phones
+@media only screen and (min-width: 414px) {
+    .cta {
+        &-buttons {
+            //fix the height between buttons and text
+            margin-top: 20%;
+        }
+    }
+}
+
+//tablets
+@media only screen and (min-width: 799px) {
+
+    .cta {
+        &-title {
+            font-size: 50pt;
+        }
+
+        &-text {
+            padding-top: 0;
+        }
+    }
+}
+
+//desktop
+@media only screen and (min-width: 1228px) {
+
+    .cta {
+        &-title {
+            font-size: 75pt;
+        }
+        &-text {
+            font-size: 55pt
+        }
     }
 }
