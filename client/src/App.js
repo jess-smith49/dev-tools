@@ -9,8 +9,8 @@ import {
   Link
 } from 'react-router-dom';
 //component imports
-import Header from './components/Header';
-import Footer from './components/Footer'
+import Landing from './pages/Landing';
+import Footer from './components/Footer';
 //page imports
 import Signup from './pages/SignupForm';
 import Login from './pages/LoginForm';
@@ -33,12 +33,17 @@ function App() {
     <ApolloProvider client={client}>
        <Router>
         <div className="apply-grad container">
-        <Header />
-        <div className="cta-text"> The ulitmate resource for learning web developmemt at your own pace. Create your account to start learning today! </div>
-          <Switch>
-            <Route exact path='/signup' component={Signup} />
-            <Route exact path='/login' component={Login} />
-          </Switch>
+        <Switch>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <Landing />
+          </Route>
+        </Switch>
         </div>
       </Router>
       <Footer />
