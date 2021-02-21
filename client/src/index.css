@@ -25,6 +25,7 @@ header {
 header .h-lg {
   margin-top: 0%;
   font-size: 30pt;
+  padding: 10pt;
 }
 header ul {
   display: flex;
@@ -41,6 +42,7 @@ header ul a {
   float: right;
   text-decoration: none;
   color: #00CF9C;
+  padding: 10pt;
 }
 
 .cta {
@@ -91,7 +93,7 @@ header ul a {
   justify-content: center;
   overflow: auto;
   text-align: center;
-  padding: 20%;
+  padding: 10%;
 }
 .form h2 {
   font-family: "Righteous", cursive;
@@ -113,6 +115,7 @@ header ul a {
   background-color: rgba(255, 255, 255, 0.4);
   border: none;
   border-radius: 15px;
+  width: 75%;
 }
 .form-input:active {
   background-color: white;
