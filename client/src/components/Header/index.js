@@ -16,13 +16,13 @@ export default function Header() {
             ) 
         } else {
             return (
-                <ul className="cta">
-                    <li className="cta-btn">
+                <ul>
+                    <li>
                         <Link to="/signup">
                             Signup
                         </Link>
                     </li>
-                    <li className="cta-btn" >
+                    <li>
                         <Link to="/login">
                             Login
                         </Link>
@@ -32,13 +32,13 @@ export default function Header() {
         }
     }
     return(
-        <header className="header-container">
+        <header>
             <div className="flex-wrap">
                 <h1 className="h-lg">Dev Learn</h1>
-            </div>
             <nav>
                 {showNavigation()}
             </nav>
+            </div>
         </header>
     )
 };

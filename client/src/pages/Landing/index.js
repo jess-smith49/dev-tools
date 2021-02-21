@@ -9,8 +9,25 @@ export default function CTA() {
                     <h1 className="h-lg">Dev Learn</h1>
                 </div>
                 <div className="cta-text">
-                    The ulitmate resource for learning web developmemt at your own pace. Create your account to start learning today!
-        </div>
+                    <p>
+                        One of the biggest hurdles when learning web development is memorizing the vast amount of definitions
+                        and terms that is being thrown at you. The Dev Learn team wanted to create a simple,
+                        easy-to-use application that would tackle two of the major components of learning code:
+                         <span>
+                          <br /> 1. Consistency.
+                          <br /> 2. Memorization.
+                        </span>
+                    </p>
+                    <p>
+                        We came up with our favorite questions from our experience and created 3 sets of flashcards that
+                        you will automatically have access to when you create an account. You will also receive daily reminders
+                        so you never miss out on a day of studying.
+                        <br />
+                        <span>
+                        So what are you waiting for? Get learning!
+                        </span>
+                    </p>
+                </div>
                 <div className="cta-buttons">
                     <div className="cta-btn">
                         <Link to="/signup">Create an Account </Link>

@@ -32,7 +32,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
        <Router>
-        <div className>
+        <div>
         <Switch>
           <Route path="/signup">
             <Signup />
