@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 //page imports
 import Signup from './pages/SignupForm';
 import Login from './pages/LoginForm';
+import Dashboard from './pages/Dashboard'
 
 const client = new ApolloClient({
   request: operation => {
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/">
             <Landing />
