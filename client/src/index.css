@@ -9957,22 +9957,17 @@ header .h-lg {
   font-size: 30pt;
   padding: 10pt;
 }
-header ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  top: 0;
+header .navbar-nav {
+  padding-left: 70%;
 }
 header ul li {
+  float: right;
   list-style: none;
-  display: inline-block;
-  margin-left: 90%;
 }
 header ul a {
-  float: right;
   text-decoration: none;
   color: #00CF9C;
-  padding: 10pt;
+  padding: 10px;
 }
 
 .cta {
@@ -10058,7 +10053,8 @@ header ul a {
 }
 
 .footer {
-  padding-top: 15pt;
+  margin-top: 50px;
+  width: 100%;
 }
 .footer-container {
   position: fixed;
@@ -10066,23 +10062,35 @@ header ul a {
 }
 
 @media only screen and (min-width: 414px) {
+  .cta h1 {
+    font-size: 60pt;
+    padding-bottom: 10%;
+  }
   .cta-buttons {
-    margin-top: 30%;
+    margin-top: 20%;
+    padding-bottom: 10px;
   }
   .cta-btn {
     margin-top: 15%;
+    width: 90%;
   }
 }
 @media only screen and (min-width: 799px) {
   .cta-title {
     font-size: 50pt;
   }
+  .cta-buttons {
+    margin-top: 10%;
+  }
+  .cta-btn {
+    margin-top: 5%;
+  }
 }
 @media only screen and (min-width: 1228px) {
-  .cta-title {
-    font-size: 75pt;
+  .cta h1 {
+    font-size: 100px;
   }
   .cta-text {
-    font-size: 45px;
+    font-size: 30pt;
   }
 }
