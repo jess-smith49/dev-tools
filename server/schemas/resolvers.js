@@ -58,7 +58,7 @@ const resolvers = {
             addCard: async(parent, {question, answer}, context) => {
                 if(context.user){
                     const newCard = await Card.create(
-                        {question: question, answer: answer},
+                        {set: set, question: question, answer: answer},
                         {new: true}
                     )
                     const updatedSet = await Sets.findOneAndUpdate(
