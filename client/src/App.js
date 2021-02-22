@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 //page imports
 import Signup from './pages/SignupForm';
 import Login from './pages/LoginForm';
+import Card from './components/Card';
 
 const client = new ApolloClient({
   request: operation => {
@@ -31,6 +32,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Card />
        <Router>
         <div>
         <Switch>

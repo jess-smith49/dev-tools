@@ -1,4 +1,4 @@
-const {User, Sets } = require('../models');
+const {User, Sets, Card } = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 

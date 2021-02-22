@@ -18,3 +18,17 @@ export const QUERY_ME = gql`
     }
 }
 `
+
+export const QUERY_SET = gql`
+    query getSet($setName: String!) {
+        set {
+            _id
+            setName
+            card {
+                _id
+                question
+                answer
+            }
+        }
+    }
+`;
