@@ -10,7 +10,7 @@ export default function Dashboard() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <section className="dash">
+        <section className="dash-">
             <Header />
             <Card style={{ width: '20rem' }}>
                 <Card.Body>

@@ -38,7 +38,7 @@ class AuthService {
         localStorage.removeItem('id_token');
         window.location.assign('/');
     }
-
+ 
     addSet(setName) {
         localStorage.setItem('setName', setName)
     }
