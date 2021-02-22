@@ -1,5 +1,4 @@
 const {Schema, model} = require('mongoose')
-const cardSchema = require('./Card');
 
 const setsSchema = new Schema(
     {
@@ -8,9 +7,7 @@ const setsSchema = new Schema(
             required: true,
             unique: true,
             trim: true,
-        },
-
-        cards: [cardSchema.schema]
+        },        
     }
 )
 
