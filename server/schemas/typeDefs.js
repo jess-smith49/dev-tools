@@ -28,7 +28,7 @@ type Auth {
 type Query {
     me: User
     cards: [Card]
-    set(setName: String!): [Sets]
+    set: [Sets]
 }
 
 type Mutation {
