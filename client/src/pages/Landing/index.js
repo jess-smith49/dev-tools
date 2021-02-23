@@ -1,7 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Carosuel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export default function CTA() {
+    //create breakpoints for carosuel
+    const responsive = {
+        superLargeDesktop: {
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 3
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
+
     return (
         <div className="apply-grad">
             <section className="cta">
@@ -10,22 +32,7 @@ export default function CTA() {
                 </div>
                 <div className="cta-text">
                     <p>
-                        One of the biggest hurdles when learning web development is memorizing the vast amount of definitions
-                        and terms that is being thrown at you. The Dev Learn team wanted to create a simple,
-                        easy-to-use application that would tackle two of the major components of learning code:
-                         <span>
-                          <br /> 1. Consistency.
-                          <br /> 2. Memorization.
-                        </span>
-                    </p>
-                    <p>
-                        We came up with our favorite questions from our experience and created 3 sets of flashcards that
-                        you will automatically have access to when you create an account. You will also receive daily reminders
-                        so you never miss out on a day of studying.
-                        <br />
-                        <span>
-                        So what are you waiting for? Get learning!
-                        </span>
+                        The up and coming flashcard app for aspiring web developers.
                     </p>
                 </div>
                 <div className="cta-buttons">
@@ -36,6 +43,16 @@ export default function CTA() {
                         <Link to="/login">Login </Link>
                     </div>
                 </div>
+                <section className="carosuel">
+                    <div className="carosuel-container">
+                        <Carosuel responsive={responsive}>
+                            <div>Item 1</div>
+                            <div>Item 2</div>
+                            <div>Item 3</div>
+                            <div>Item 4</div>
+                        </Carosuel>
+                    </div>
+                </section>
 
             </section>
         </div>
