@@ -9,8 +9,8 @@ $pop-shadow: 0 2px 2px #4486d1,
 -6px 11px 0px #44c0d1;
 //media breakpoints
 
-
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 body {
     margin: 0;
@@ -36,25 +36,27 @@ h1 {
 header {
     background: linear-gradient(to left, $yellow, $green, $blue );
     
+    
     .h-lg {
         margin-top: 0%;
         font-size: 30pt;
+        padding: 10pt;
+    }
+
+    .navbar-nav {
+        padding-left: 70%;
     }
 
     ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        top: 0;
-    li {
+        li {
+            float: right;
         list-style: none;
-        display: inline-block;
-        margin-left: 90%;
     }
     a {
-        float: right;
         text-decoration: none;
         color: $green;
+        padding: 10px;
+    
     }
 
 }
@@ -118,7 +120,7 @@ header {
     justify-content: center;
     overflow: auto;
     text-align: center;
-    padding: 20%;
+    padding: 10%;
     h2 {
         font-family: $fancy-font;
         color: $yellow;
@@ -140,6 +142,7 @@ header {
         background-color:  rgba(255,255,255,0.4);
         border: none;
         border-radius: 15px;
+        width: 75%;
 
         &:active {
             background-color: white;
@@ -155,8 +158,8 @@ header {
 }
 
 .footer {
-    padding-top: 15pt;
-
+    margin-top: 50px;
+    width: 100%;
      &-container {
         position: fixed;
         bottom: 0;
@@ -164,18 +167,27 @@ header {
 }
 
 
+
+
 //media queries
 
 //large phones
 @media only screen and (min-width: 414px) {
     .cta {
+        
+        h1 {
+            font-size: 60pt;
+            padding-bottom: 10%;
+        }
         &-buttons {
             //fix the height between buttons and text
-            margin-top: 30%;
+            margin-top: 20%;
+            padding-bottom: 10px;
         }
 
         &-btn {
             margin-top: 15%;
+            width: 90%;
         }
     }
 }
@@ -188,7 +200,12 @@ header {
             font-size: 50pt;
         }
 
-       
+       &-buttons {
+            margin-top: 10%;
+       }
+       &-btn {
+           margin-top: 5%;
+       }
     }
 }
 
@@ -196,11 +213,11 @@ header {
 @media only screen and (min-width: 1228px) {
 
     .cta {
-        &-title {
-            font-size: 75pt;
+        h1 {
+            font-size: 100px;
         }
         &-text {
-            font-size: 45px
+            font-size: 30pt
         }
     }
 }

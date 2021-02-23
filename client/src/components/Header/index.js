@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 
 export default function Header() {
     function showNavigation() {
@@ -33,12 +34,21 @@ export default function Header() {
     }
     return(
         <header>
-            <div className="flex-wrap">
-                <h1 className="h-lg">Dev Learn</h1>
-            <nav>
-                {showNavigation()}
-            </nav>
-            </div>
+           <Navbar expand="lg">
+               <h1>Dev Tools</h1>
+               <Nav>
+                   <div className="nav-wrapper">
+                   {showNavigation()}
+                   </div>
+               </Nav>
+           </Navbar>
         </header>
     )
 };
+
+{/* <div className="flex-wrap">
+<h1 className="h-lg">Dev Learn</h1>
+<nav>
+{showNavigation()}
+</nav>
+</div> */}
