@@ -1,4 +1,4 @@
-const {User, Sets, Card } = require('../models');
+const {User, Sets, Card} = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -14,13 +14,13 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
-        // once sets is figured out, quety by searching for set name
-        cards: async(parent) => {            
+
+        cards: async(parent, args) => {            
             
-            return Card.find()
+            return Card.find();
         },
-        set: async(parent, {setName}) => {
-            return await Sets.find({setName}).populate('cards');
+        set: async() => {
+            return await Sets.find().populate('cards');
         }
     },
 

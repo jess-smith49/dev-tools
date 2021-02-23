@@ -12,11 +12,6 @@ const cardSchema = new Schema (
             required: true
         },
 
-        set: {
-            type: String,
-            required: true
-        }
-
     }
 );
 

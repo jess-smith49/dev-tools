@@ -11,6 +11,7 @@ type User {
 type Sets {
     _id: ID!
     setName: String!
+    cards: [Card]
 }
 
 type Card {
