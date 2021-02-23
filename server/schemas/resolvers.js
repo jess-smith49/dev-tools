@@ -14,13 +14,39 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
-        cards: async(parent, args) => {            
+
+        users: async () => {
+            return User.find()
+              .select('-__v -password')
+              .populate('set')
+              .populate('card');
+          },
+
+        user: async (parent, { username }) => {
+            return User.findOne({ username })
+              .select('-__v -password');
+            //   .populate('set')
+            //   .populate('card');
+          },
+
+        cards: async() => {  
             
             return Card.find();
         },
-        set: async() => {
-            return await Sets.find().populate('cards');
-        }
+
+        card: async (parent, { _id }) => {
+            return await Card.findById({ _id });
+        },
+
+        sets: async() => {
+            return await Sets.find();
+            // .populate('card');
+        },
+
+        set: async(parent, { setName }) => {
+            return await Sets.findOne({ setName });
+            // .populate('card');
+        },     
 
     },
 
