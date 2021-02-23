@@ -210,7 +210,7 @@ const cardSeed = [
   console.log('cards seeded');
 
   // many to one set
-  setSeed.forEach(set => {
+  setSeed.forEach(async set => {
     const cardsBySet = cardSeed.filter(card => card.setName === set.setName)
     await Sets.findOneAndUpdate( {setName: set.setName}, { cards: cardsBySet } )
   })

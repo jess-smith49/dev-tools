@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose')
 
-const cardSchema = new Schema (
+const cardSchema = new Schema(
     {
         question: {
             type: String,
@@ -11,7 +11,8 @@ const cardSchema = new Schema (
             required: true
         },
         set: {
-            type: String
+            type: String,
+            required: true
         }
     }
 );
