@@ -16,7 +16,6 @@ type Sets {
 
 type Card {
     _id: ID!
-    set: String!
     question: String!
     answer: String!
 }
@@ -28,6 +27,8 @@ type Auth {
 
 type Query {
     me: User
+    cards: [Card]
+    set: [Sets]
 }
 
 type Mutation {
