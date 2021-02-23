@@ -1,4 +1,4 @@
-const {User, Sets } = require('../models');
+const {User, Sets, Card} = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -14,6 +14,14 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
+
+        cards: async(parent, args) => {            
+            
+            return Card.find();
+        },
+        set: async() => {
+            return await Sets.find().populate('cards');
+        }
     },
 
     Mutation: {
