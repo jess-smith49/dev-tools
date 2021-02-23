@@ -8,6 +8,12 @@ const setsSchema = new Schema(
             unique: true,
             trim: true,
         },        
+        cards: [
+            { 
+            type: Schema.Types.ObjectId,
+            ref: 'Card'
+        }
+    ]
     }
 )
 
