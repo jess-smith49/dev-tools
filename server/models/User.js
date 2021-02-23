@@ -23,10 +23,10 @@ const userSchema = new Schema(
             required: true
         },
 
-        sets: [
+        set: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Sets'
+                ref: 'Set'
             }
         ]
     }
