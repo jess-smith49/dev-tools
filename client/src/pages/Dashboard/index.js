@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
-import { Card, Button, Modal } from 'react-bootstrap';
+import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
 
 
@@ -12,9 +13,17 @@ export default function Dashboard() {
     return (
         <section className="dash-">
             <Header />
-            <Card style={{ width: '20rem' }}>
+
+            <CardDeck>
+            <Card style={{ width: '15rem' }}>
+                <Card.Body>
+                    <Link to='/cardset'>Set Name Here</Link>
+                </Card.Body>
+            </Card>
+            <Card style={{ width: '15rem' }}>
                 <Card.Body>
                 <Button variant="primary" onClick={handleShow}>
+                    Create your own set
                 </Button>
                 <Modal show={show} onHide={handleClose}>
                     <CreateSet />
@@ -29,6 +38,7 @@ export default function Dashboard() {
                 </Modal>
                 </Card.Body>
             </Card>
+            </CardDeck>
         </section>
     )
 };

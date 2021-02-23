@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SetCarosuel from '../../components/Carosuel';
-
+//import {Testimonials} from '../../components/Testimonials';
 export default function CTA() {
     
   
@@ -25,10 +24,6 @@ export default function CTA() {
                         <Link to="/login">Login </Link>
                     </div>
                 </div>
-                </div>
-           
-                <div className="carosuel">
-                    <SetCarosuel />
                 </div>
             </section>
 

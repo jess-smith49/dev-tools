@@ -59,6 +59,7 @@ header {
     overflow: auto;
     justify-content: center;
     background: $gradient;
+    height: 80vh;
 
     padding: 10%;
     &-title {
@@ -107,6 +108,14 @@ header {
            
         }
     }
+}
+
+.carosuel {
+    height: 20vh;
+  &-item {
+      background-color: $yellow;
+      padding: 20px 0px 20px 0px;
+  }
 }
 
 .form {

@@ -36,6 +36,7 @@ header ul a {
   overflow: auto;
   justify-content: center;
   background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
+  height: 80vh;
   padding: 10%;
 }
 .cta-title {
@@ -75,6 +76,14 @@ header ul a {
 }
 .cta-btn:hover {
   box-shadow: 3px 5px 8px #000 inset;
+}
+
+.carosuel {
+  height: 20vh;
+}
+.carosuel-item {
+  background-color: #FFEB50;
+  padding: 20px 0px 20px 0px;
 }
 
 .form {
