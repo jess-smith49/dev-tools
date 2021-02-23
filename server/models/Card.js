@@ -1,19 +1,16 @@
 const {Schema, model} = require('mongoose')
 
-const cardSchema = new Schema (
+const cardSchema = new Schema(
     {
-        set: {
-            type: Schema.Types.ObjectId,
-            ref: 'Sets',
-            required: true
-          },
-
         question: {
             type: String,
             required: true
         },
-
         answer: {
+            type: String,
+            required: true
+        },
+        set: {
             type: String,
             required: true
         }
