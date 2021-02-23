@@ -11,14 +11,14 @@ type User {
 type Sets {
     _id: ID!
     setName: String!
-    card: [Card]
+    cards: [Card]
 }
 
 type Card {
     _id: ID!
-    set: String!
     question: String!
     answer: String!
+    set: String!
 }
 
 type Auth {
@@ -28,6 +28,8 @@ type Auth {
 
 type Query {
     me: User
+    cards: [Card]
+    set: [Sets]
 }
 
 type Mutation {

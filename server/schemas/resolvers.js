@@ -14,6 +14,14 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
+        cards: async(parent, args) => {            
+            
+            return Card.find();
+        },
+        set: async() => {
+            return await Sets.find().populate('cards');
+        }
+
     },
 
     Mutation: {

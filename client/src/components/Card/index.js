@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_CARD } from '../../utils/mutations';
-import  { QUERY_ME } from '../../utils/queries';
+import  { QUERY_CARD } from '../../utils/queries';
 
 
 function Card() {
@@ -9,42 +9,35 @@ function Card() {
         question: '',
         answer: ''
     });
-    
+
+    const { loading, data } = useQuery(QUERY_CARD);
+    const cardInfo = data?.cards;
+    console.log(cardInfo);
+
     // need to be able to create and add questions/answers to card
-    const [addCard, { error }] = useMutation(ADD_CARD);
+    // const [addCard, { error }] = useMutation(ADD_CARD);
 
-    const handleChange = event => {
-        console.log(event.target)
-    }
+    // const handleChange = event => {
+    //     console.log(event.target)
+    // }
 
-    const handleFormSubmit = async event => {
-        event.preventDefault();
-        try {
-            // add Card to database
-            await addCard({
-                variables: { question, answer }
-            });
-            setCardData({
-                question: '',
-                answer: ''
-            });
-            
-            console.log(variables);
-        } catch (e) {
-            console.error(e);
-        }
-    }
+    // const handleFormSubmit = async event => {
+    //     event.preventDefault();
+
+    // }
 
     // set function to populate card info with user input
 
     return (
         <section>
-            <form onSubmit={handleFormSubmit}>
-            <textarea
-                placeholder="enter question"
-                onChange={handleChange}></textarea>
-
-            </form>
+            {cardInfo.map((cardDetail) => {
+                return (
+                    <div key={cardDetail._id}>
+                        <h3>{cardDetail.question}</h3>
+                        <p>{cardDetail.answer}</p>
+                    </div>
+                )
+            })}
         </section>
     )
 }
