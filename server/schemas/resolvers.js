@@ -14,14 +14,14 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
-        cards: async(parent, args) => {            
+        // once sets is figured out, quety by searching for set name
+        cards: async(parent) => {            
             
-            return Card.find();
+            return Card.find()
         },
-        set: async() => {
-            return await Sets.find().populate('cards');
+        set: async(parent, {setName}) => {
+            return await Sets.find({setName}).populate('cards');
         }
-
     },
 
     Mutation: {

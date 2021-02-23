@@ -28,13 +28,13 @@ export const QUERY_SET = gql`
     }
 `;
 
-// add set, currently getting error message 'expected iterable'
 export const QUERY_CARD = gql`
     query getCards {
         cards {
             _id
             question
             answer
+            set
         }
     }
 `;

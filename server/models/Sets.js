@@ -7,13 +7,13 @@ const setsSchema = new Schema(
             required: true,
             unique: true,
             trim: true,
-        },        
+        },
         cards: [
-            { 
-            type: Schema.Types.ObjectId,
-            ref: 'Card'
-        }
-    ]
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Card'
+            }
+        ]
     }
 )
 
