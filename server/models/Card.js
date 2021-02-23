@@ -10,10 +10,7 @@ const cardSchema = new Schema(
             type: String,
             required: true
         },
-        set: {
-            type: String,
-            required: true
-        }
+
     }
 );
 
