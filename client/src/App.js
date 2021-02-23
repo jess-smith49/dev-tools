@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css"
 import React from 'react';
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from 'apollo-boost';
@@ -15,6 +14,7 @@ import Footer from './components/Footer';
 import Signup from './pages/SignupForm';
 import Login from './pages/LoginForm';
 import Card from './components/Card';
+import Dashboard from './pages/Dashboard'
 
 const client = new ApolloClient({
   request: operation => {
@@ -42,6 +42,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/">
             <Landing />
