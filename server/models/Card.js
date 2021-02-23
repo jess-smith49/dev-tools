@@ -1,7 +1,11 @@
 const {Schema, model} = require('mongoose')
 
 const cardSchema = new Schema(
-    {
+    {      
+        set: {
+            type: String,
+            required: true
+        },
         question: {
             type: String,
             required: true
@@ -10,10 +14,7 @@ const cardSchema = new Schema(
             type: String,
             required: true
         },
-        set: {
-            type: String,
-            required: true
-        }
+
     }
 );
 

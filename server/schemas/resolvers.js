@@ -39,13 +39,19 @@ const resolvers = {
         },
 
         sets: async() => {
-            return await Sets.find();
-            // .populate('card');
+            return await Sets.find()
+            .populate({
+                path: 'set.setName',
+                populate: 'card'
+            });
         },
 
         set: async(parent, { setName }) => {
-            return await Sets.findOne({ setName });
-            // .populate('card');
+            return await Sets.findOne({ setName })
+            .populate({
+                path: 'set.setName',
+                populate: 'card'
+            });
         },     
 
     },
