@@ -10,7 +10,7 @@ $pop-shadow: 0 2px 2px #4486d1,
 //media breakpoints
 
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
-@import "../node_modules/bootstrap/scss/bootstrap";
+
 
 body {
     margin: 0;
@@ -22,16 +22,6 @@ h1 {
         text-shadow: $pop-shadow;
 }
 
-.apply-grad {
-    background: $gradient;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    overflow: auto;
-   
-}
 
 header {
     background: linear-gradient(to left, $yellow, $green, $blue );
@@ -42,35 +32,41 @@ header {
         font-size: 30pt;
         padding: 10pt;
     }
-
+    
     .navbar-nav {
         padding-left: 70%;
     }
-
+    
     ul {
         li {
             float: right;
-        list-style: none;
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: $green;
+            padding: 10px;
+            
+        }
+        
     }
-    a {
-        text-decoration: none;
-        color: $green;
-        padding: 10px;
     
-    }
-
-}
-   
 }
 
 .cta {
-    padding: 10%;
     text-align: center;
+    align-content: center;
+    overflow: auto;
+    justify-content: center;
+    background: $gradient;
+    height: 80vh;
+
+    padding: 10%;
     &-title {
         font-size: 35pt;
         color: $yellow;
         text-shadow: $pop-shadow;
-        
+        margin-bottom: 15%;
     }
     
     &-text {
@@ -78,7 +74,7 @@ header {
         box-shadow: 10px 10px 8px #000;
         border-radius: 15px;
         font-family: $reg-text;
-        font-size: 18pt;
+        font-size: 15pt;
         padding: 10% 5% 10% 5%;
         line-height: 1.5em;
         //text-shadow: 10px 10px 8px #000;
@@ -87,7 +83,7 @@ header {
     
 
     &-buttons {
-        margin-top: 40%;
+        margin-top: 10%;
     }
     &-btn {
         list-style: none;
@@ -114,6 +110,14 @@ header {
     }
 }
 
+.carosuel {
+    height: 20vh;
+  &-item {
+      background-color: $yellow;
+      padding: 20px 0px 20px 0px;
+  }
+}
+
 .form {
     display: flex;
     align-content: center;
@@ -132,7 +136,7 @@ header {
         padding: 15pt;
         overflow: auto;
         border-radius: 15px;
-        box-shadow: 10px 10px 8px #000;
+        box-shadow: 10px 10px 8px #808080;
     }
 
     &-input {
