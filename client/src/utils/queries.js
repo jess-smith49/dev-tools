@@ -9,7 +9,7 @@ export const QUERY_ME = gql`
         sets {
             _id
             setName
-            card {
+            cards {
                 _id
                 question
                 answer
