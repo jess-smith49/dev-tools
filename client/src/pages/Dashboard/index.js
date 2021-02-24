@@ -29,6 +29,7 @@ export default function Dashboard() {
              await addSet({
                 variables: {setName}
             });
+            console.log(setName)
 
             setText('')
         }
@@ -57,7 +58,7 @@ export default function Dashboard() {
                 <Button variant="primary" onClick={handleShow}>
                     Create your own set
                 </Button>
-                <Modal show={show} onHide={handleClose}>
+               
                 <Modal show={show} onHide={handleClose}>
                <Modal.Header closeButton>
                    <Modal.Title>Modal heading</Modal.Title>
@@ -74,7 +75,7 @@ export default function Dashboard() {
                        </textarea>
                    </Form>
                </Modal.Body>
-           </Modal>
+           
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
