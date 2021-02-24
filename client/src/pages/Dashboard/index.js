@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
-import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
+import { Card, Button, Modal, CardDeck, Form } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
 import {ADD_SET} from '../../utils/mutations';
 import { useMutation } from '@apollo/react-hooks';
@@ -17,7 +17,7 @@ export default function Dashboard() {
     const [addSet, {error}] = useMutation(ADD_SET);
 
     const handleChange = e => {
-        const {name, value} = e.target;
+        //const {name, value} = e.target;
 
         setText(e.target.value)
     
@@ -63,7 +63,8 @@ export default function Dashboard() {
                    <Modal.Title>Modal heading</Modal.Title>
                </Modal.Header>
                <Modal.Body>
-                   <form onSubmit={handleFormSubmit}>
+                   <Form onSubmit={handleFormSubmit}>
+                       <h1>Add Set</h1>
                        <textarea
                         placeholder="Name"
                         name="set"
@@ -71,7 +72,7 @@ export default function Dashboard() {
                         onChange={handleChange}
                        >
                        </textarea>
-                   </form>
+                   </Form>
                </Modal.Body>
            </Modal>
                     <Modal.Footer>
