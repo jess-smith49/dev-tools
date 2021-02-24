@@ -1,5 +1,5 @@
 import React, {useState, formState} from 'react';
-import { Card, Button, Modal, ModalBody } from 'react-bootstrap';
+import { Card, Button, Modal, ModalBody, Form } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import { useMutation } from '@apollo/react-hooks';
 import {ADD_SET} from '../../utils/mutations';
@@ -11,14 +11,24 @@ export default function CreateSet() {
     const handleClose = () => setShow(false);
    
     //add set 
-    const [addSet, setAddSet] = useState([]);
+    // const [addSet, setAddSet] = useState([]);
 
-    const [questionInput, setQuestionInput] = useState('');
+    // const [questionInput, setQuestionInput] = useState('');
 
-    const [saveSet, { error }] = useMutation(ADD_SET);
+    // const [saveSet, { error }] = useMutation(ADD_SET);
 
     //form state
-    const [formState, setFormState] = useState({ set: '', question: '', answer: ''})
+    const [formState, setFormState] = useState({ set: ''})
+    const [addSet, {error}] = useMutation(ADD_SET);
+
+    const handleChange = e => {
+        const {name, value} = e.target;
+
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    };
 
 
     const handleFormSubmit = async (event) => {
@@ -38,8 +48,7 @@ export default function CreateSet() {
 
         setFormState({
             set: '',
-            question: '',
-            answer: ''
+            
         });
     };
 
@@ -47,9 +56,20 @@ export default function CreateSet() {
             <>
                  <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Add a Set</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Body>
+                        <h2>Give Your Set a Unique Name</h2>
+                        <Form onSubmit={handleFormSubmit}>
+                            <input
+                                placeholder="What is the Name of the Set?"
+                                name="set"
+                                type="text"
+                                value={formState.set}
+                                onChange={handleChange}
+                            />
+                        </Form>
+                    </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
@@ -62,3 +82,4 @@ export default function CreateSet() {
             </>
         )
     }
+

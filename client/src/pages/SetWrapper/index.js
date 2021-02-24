@@ -1,7 +1,7 @@
 import { React, useState }  from 'react';
 import { CardGroup, Card, Modal, Button } from 'react-bootstrap';
 import FlashCard from '../../components/FlashCard';
-import CreateCard from '../../components/CreateCard'
+//import CreateCard from '../../components/CreateCard'
 
 export default function CardSet() {
     const [show, setShow] = useState(false);
