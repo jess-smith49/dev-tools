@@ -19,9 +19,22 @@ const resolvers = {
             
             return Card.find();
         },
+
+        card: async (parent, {question}) => {
+            return await Card.findById({ question });
+        },
+
         set: async() => {
             return await Sets.find().populate('cards');
-        }
+        },
+
+        sets: async() => {
+            return await Sets.find()
+            .populate({
+                path: 'set.setName',
+                populate: 'card'
+            });
+        },
     },
 
     Mutation: {

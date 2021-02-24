@@ -42,6 +42,10 @@ class AuthService {
     addSet(setName) {
         localStorage.setItem('setName', setName)
     }
+
+    addCard(question) {
+        localStorage.setItem('question', question)
+    }
 }
 
 export default new AuthService();

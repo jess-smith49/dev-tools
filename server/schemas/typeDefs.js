@@ -27,8 +27,12 @@ type Auth {
 
 type Query {
     me: User
-    cards: [Card]
-    set: [Sets]
+    users: [User]
+    user(username: String!): User 
+    sets: [Sets]
+    set(setName: String): Sets
+    cards(setName: String): [Card]
+    card(_id: ID!): Card
 }
 
 type Mutation {
