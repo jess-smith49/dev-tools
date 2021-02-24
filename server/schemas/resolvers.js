@@ -69,9 +69,19 @@ const resolvers = {
                 
                 //throw new AuthenticationError('You need to be logged in!');
                 ///CREATING A NEW SET
-                const newSet = new Sets({setName});
+                if(context.user){
+                    const newSet = new Sets({setName});
 
-                return newSet
+                    await User.findOneAndUpdate(
+                        {_id: context.user_id},
+                        {$push: {setName: newSet}},
+                        {new: true}
+                    )
+
+                    return newSet
+                }
+                throw new AuthenticationError('Not logged in');
+                
               
             },
 
