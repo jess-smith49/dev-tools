@@ -3,6 +3,8 @@ import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
+import {ADD_SET} from '../../utils/mutations';
+import { useMutation } from '@apollo/react-hooks';
 
 
 export default function Dashboard() {
@@ -10,6 +12,36 @@ export default function Dashboard() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [setName, setText] = useState({set: ''});
+    const [addSet, {error}] = useMutation(ADD_SET);
+
+    const handleChange = e => {
+        const {name, value} = e.target;
+
+        setText(e.target.value)
+    
+};
+    const handleFormSubmit = async event => {
+        event.preventDefault();
+
+        try{
+             await addSet({
+                variables: {setName}
+            });
+
+            setText('')
+        }
+        catch(e) {
+            console.log(error)
+        }
+
+
+    }
+
+    
+
+
     return (
         <section className="dash-">
             <Header />
@@ -30,7 +62,17 @@ export default function Dashboard() {
                <Modal.Header closeButton>
                    <Modal.Title>Modal heading</Modal.Title>
                </Modal.Header>
-               <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+               <Modal.Body>
+                   <form onSubmit={handleFormSubmit}>
+                       <textarea
+                        placeholder="Name"
+                        name="set"
+                        value={setName}
+                        onChange={handleChange}
+                       >
+                       </textarea>
+                   </form>
+               </Modal.Body>
            </Modal>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
