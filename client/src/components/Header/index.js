@@ -1,7 +1,7 @@
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 export default function Header() {
     function showNavigation() {
@@ -34,6 +34,7 @@ export default function Header() {
     }
     return(
         <header>
+        <Container fluid>
            <Navbar expand="lg">
                <h1>Dev Tools</h1>
                <Nav>
@@ -42,6 +43,7 @@ export default function Header() {
                    </div>
                </Nav>
            </Navbar>
+           </Container>
         </header>
     )
 };
