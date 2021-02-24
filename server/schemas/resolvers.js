@@ -87,22 +87,22 @@ const resolvers = {
 
             addCard: async(parent, {question, answer}, context) => {
 
-                //const newCard = new Card({question: question, answer: answer});
+                const newCard = new Card({question: question, answer: answer});
 
-                // return newCard
-                if(context.user){
-                    const newCard = await Card.create(
-                        { question: question, answer: answer},
-                        {new: true}
-                    )
-                    const updatedSet = await Sets.findOneAndUpdate(
-                        {_id: context.user._id},
-                        {$push: {card: newCard}},
-                        {new: true}
-                    )
-                return updatedSet;
-              }
-                // return newCard;
+                 return newCard
+            //     if(context.user){
+            //         const newCard = await Card.create(
+            //             { question: question, answer: answer},
+            //             {new: true}
+            //         )
+            //         const updatedSet = await Sets.findOneAndUpdate(
+            //             {_id: context.user._id},
+            //             {$push: {card: newCard}},
+            //             {new: true}
+            //         )
+            //     return updatedSet;
+            //   }
+                //return newCard;
                 
             },
 

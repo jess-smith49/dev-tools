@@ -4,15 +4,25 @@ import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck, Form } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
 import {ADD_SET} from '../../utils/mutations';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
+//import {QUERY_SET} from '../../utils/queries';
 
 
 export default function Dashboard() {
+   
+   //modal stuff
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // //query stuff
+    // const {data} = useQuery(QUERY_SET);
+    // if(data){
+    //     userSets = data.userSets;
+    // };
+
+    
+    //mutation stuff
     const [setName, setText] = useState('');
     const [addSet, {error}] = useMutation(ADD_SET);
 
@@ -39,6 +49,7 @@ export default function Dashboard() {
 
     }
 
+    //map over sets here
     
     return (
         <section className="dash-">
