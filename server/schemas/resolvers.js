@@ -70,11 +70,13 @@ const resolvers = {
                 //throw new AuthenticationError('You need to be logged in!');
                 ///CREATING A NEW SET
                 if(context.user){
+                    console.log(context)
                     const newSet = new Sets({setName});
 
                     await User.findOneAndUpdate(
                         {_id: context.user_id},
-                        {$push: {setName: newSet}},
+                        //{$push: {setName: newSet}},
+                        {$push: {sets: {setName}}},
                         {new: true}
                     )
 
@@ -87,21 +89,21 @@ const resolvers = {
 
             addCard: async(parent, {question, answer}, context) => {
 
-                const newCard = new Card({question: question, answer: answer});
+                // const newCard = new Card({question: question, answer: answer});
 
-                 return newCard
-            //     if(context.user){
-            //         const newCard = await Card.create(
-            //             { question: question, answer: answer},
-            //             {new: true}
-            //         )
-            //         const updatedSet = await Sets.findOneAndUpdate(
-            //             {_id: context.user._id},
-            //             {$push: {card: newCard}},
-            //             {new: true}
-            //         )
-            //     return updatedSet;
-            //   }
+                //  return newCard
+                if(context.user){
+                    const newCard = await Card.create(
+                        { question: question, answer: answer},
+                        {new: true}
+                    )
+                    const updatedSet = await Sets.findOneAndUpdate(
+                        {_id: setId},
+                        {$push: {card: newCard}},
+                        {new: true}
+                    )
+                return updatedSet;
+              }
                 //return newCard;
                 
             },

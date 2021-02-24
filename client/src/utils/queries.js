@@ -19,20 +19,20 @@ export const QUERY_ME = gql`
 }
 `
 export const QUERY_SET = gql`
-    query getSets($setName: String!) {
-        set {
+    query getSets($id: ID!) {
+        set(_id: $id){
             _id
             setName
         }
     }
 `;
 
-// add set, currently getting error message 'expected iterable'
+
 export const QUERY_CARD = gql`
     query getCards {
         cards {
             _id
-            setName
+            
             question
             answer
         }
@@ -44,7 +44,7 @@ export const QUERY_ALL = gql`
     set {
         _id
         setName
-        card {
+        cards {
             _id
             question
             answer
