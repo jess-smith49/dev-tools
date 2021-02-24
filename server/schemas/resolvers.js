@@ -52,38 +52,46 @@ const resolvers = {
 
             addSet: async(parent, {setName}, context) => {
                 //if(context.user){
-                    const newSet = await Sets.create(
-                            {set: setName},
-                            
-                            {new: true}
+                //     const newSet = await Sets.create(
+                //             {set: setName},
+                //             //{$push: {setName: newSet}}
+                //             {new: true}
 
-                    )
+                //     )
                     
-                    const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        {$push: {setName: newSet}},
-                        {new: true}
-                    )
-                return updatedUser;
+                //     const updatedUser = await User.findOneAndUpdate(
+                //         {_id: context.user_id},
+                //         {$push: {setName: newSet}},
+                //         {new: true}
+                //     )
+                // return updatedUser;
                 
                 
                 //throw new AuthenticationError('You need to be logged in!');
+                ///CREATING A NEW SET
+                const newSet = new Sets({setName});
+
+                return newSet
               
             },
 
             addCard: async(parent, {question, answer}, context) => {
-                if(context.user){
-                    const newCard = await Card.create(
-                        {set: set, question: question, answer: answer},
-                        {new: true}
-                    )
-                    const updatedSet = await Sets.findOneAndUpdate(
-                        {_id: context.user._id},
-                        {$push: {card: newCard}},
-                        {new: true}
-                    )
-                return updatedSet;
-                }
+
+                const newCard = new Card({question: question, answer: answer});
+
+                return newCard
+                // if(context.user){
+                //     const newCard = await Card.create(
+                //         {set: set, question: question, answer: answer},
+                //         {new: true}
+                //     )
+                //     const updatedSet = await Sets.findOneAndUpdate(
+                //         {_id: context.user._id},
+                //         {$push: {card: newCard}},
+                //         {new: true}
+                //     )
+                // return updatedSet;
+                // }
                 
             },
 
