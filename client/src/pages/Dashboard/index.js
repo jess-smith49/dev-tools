@@ -24,13 +24,13 @@ export default function Dashboard() {
 };
     const handleFormSubmit = async event => {
         event.preventDefault();
-
+        console.log(setName)
         try{
              await addSet({
                 variables: {setName}
             });
             console.log(setName)
-
+            
             setText('')
         }
         catch(e) {
