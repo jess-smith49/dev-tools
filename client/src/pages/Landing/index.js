@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import {Testimonials} from '../../components/Testimonials';
-export default function CTA() {
-    
-  
+import Testimonials from '../../components/Testimonials';
 
+
+export default function CTA() {
     return (
         <section className="landing-container">
             <div className="cta">
@@ -24,6 +23,9 @@ export default function CTA() {
                         <Link to="/login">Login </Link>
                     </div>
                 </div>
+                </div>
+                <div className="testimonials">
+                    <Testimonials />
                 </div>
             </section>
 

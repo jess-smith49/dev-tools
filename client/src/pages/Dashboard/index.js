@@ -17,7 +17,7 @@ export default function Dashboard() {
             <CardDeck>
             <Card style={{ width: '15rem' }}>
                 <Card.Body>
-                    <Link to='/cardset'>Set Name Here</Link>
+                    <Link to='/flashcards'>Set Name Here</Link>
                 </Card.Body>
             </Card>
             <Card style={{ width: '15rem' }}>
@@ -38,6 +38,8 @@ export default function Dashboard() {
                 </Modal>
                 </Card.Body>
             </Card>
+           
+               
             </CardDeck>
         </section>
     )
