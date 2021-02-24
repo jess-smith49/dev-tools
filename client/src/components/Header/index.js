@@ -36,7 +36,7 @@ export default function Header() {
         <header>
         <Container fluid>
            <Navbar expand="lg">
-               <h1>Dev Tools</h1>
+               <h1>Dev Learn</h1>
                <Nav>
                    <div className="nav-wrapper">
                    {showNavigation()}
