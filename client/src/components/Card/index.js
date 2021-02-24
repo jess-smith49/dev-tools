@@ -5,14 +5,14 @@ import  { QUERY_CARD } from '../../utils/queries';
 
 
 function Card() {
-    const [cardData, setCardData] = useState({
-        question: '',
-        answer: ''
-    });
+    // const [cardData, setCardData] = useState({
+    //     question: '',
+    //     answer: ''
+    // });
 
-    const { loading, data } = useQuery(QUERY_CARD);
-    const cardInfo = data?.cards;
-    console.log(cardInfo);
+    // const { loading, data } = useQuery(QUERY_CARD);
+    // const cardInfo = data?.cards;
+    // console.log(cardInfo);
 
     // need to be able to create and add questions/answers to card
     // const [addCard, { error }] = useMutation(ADD_CARD);
@@ -30,14 +30,14 @@ function Card() {
 
     return (
         <section>
-            {cardInfo.map((cardDetail) => {
+            {/* {cardInfo.map((cardDetail) => {
                 return (
                     <div key={cardDetail._id}>
                         <h3>{cardDetail.question}</h3>
                         <p>{cardDetail.answer}</p>
                     </div>
                 )
-            })}
+            })} */}
         </section>
     )
 }

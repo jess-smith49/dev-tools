@@ -9,7 +9,9 @@ const resolvers = {
             if(context.user){
                 const user = await User.findOne(
                     {_id: context.user._id})
-                    //.select('-__v -password')
+                    .select('-__v -password')
+                    .populate('sets');
+
                     return user;
             }
             throw new AuthenticationError("Not logged in");
@@ -17,10 +19,14 @@ const resolvers = {
 
         cards: async(parent, args) => {            
             
-            return Card.find();
+            return await Card.find();
         },
-        set: async() => {
+        sets: async() => {
             return await Sets.find().populate('cards');
+        },
+        set: async(parents, {setName}) => {
+            return await Sets.findOne({ setName })
+                .populate('cards');
         }
     },
 

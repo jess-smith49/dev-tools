@@ -16,7 +16,9 @@ import Login from './pages/LoginForm';
 import Card from './components/Card';
 import Dashboard from './pages/Dashboard'
 import CardSet from './pages/CardSet';
-import 'react-multi-carousel/lib/styles.css';
+// import 'react-multi-carousel/lib/styles.css';
+import SeededSets from './components/SeededSets';
+// import SeededCards from './components/SeededCards';
 
 const client = new ApolloClient({
   request: operation => {
@@ -34,8 +36,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {/* remove Card later */}
-      <Card />
+      <SeededSets />
        <Router>
         <div>
         <Switch>
