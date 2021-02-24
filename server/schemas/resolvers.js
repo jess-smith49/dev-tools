@@ -51,12 +51,14 @@ const resolvers = {
             },
 
             addSet: async(parent, {setName}, context) => {
-                if(context.user){
-                    const newSet = await Set.create(
+                //if(context.user){
+                    const newSet = await Sets.create(
                             {set: setName},
+                            
                             {new: true}
 
                     )
+                    
                     const updatedUser = await User.findOneAndUpdate(
                         {_id: context.user_id},
                         {$push: {setName: newSet}},
@@ -64,7 +66,8 @@ const resolvers = {
                     )
                 return updatedUser;
                 
-                }
+                
+                //throw new AuthenticationError('You need to be logged in!');
               
             },
 
