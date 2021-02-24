@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Testimonials from '../../components/Testimonials';
+import Header from '../../components/Header';
 
 
 export default function CTA() {
     return (
         <section className="landing-container">
+            <Header />
             <div className="cta">
-                <div className="cta-title">
-                    <h1 className="h-lg">Dev Learn</h1>
-                </div>
                 <div className="cta-text">
                     <p>
                         The up and coming flashcard app for aspiring web developers.

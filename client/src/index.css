@@ -32,30 +32,19 @@ header ul a {
 
 .cta {
   text-align: center;
-  align-content: center;
   overflow: auto;
-  justify-content: center;
   background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
-  height: 70vh;
-  padding: 10%;
-}
-.cta-title {
-  font-size: 35pt;
-  color: #FFEB50;
-  text-shadow: 0 2px 2px #4486d1, -2px 5px 1px #44b5d1, -6px 11px 0px #44c0d1;
-  margin-bottom: 15%;
+  height: 60vh;
 }
 .cta-text {
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 10px 10px 8px #000;
-  border-radius: 15px;
+  float: left;
   font-family: "Roboto", sans-serif;
   font-size: 15pt;
-  padding: 10% 5% 10% 5%;
   line-height: 1.5em;
+  text-shadow: 10px 10px 8px #000;
 }
 .cta-buttons {
-  margin-top: 10%;
+  padding-top: 5%;
 }
 .cta-btn {
   list-style: none;
@@ -67,6 +56,7 @@ header ul a {
   font-size: 15pt;
   padding: 10px;
   box-shadow: 10px 10px 8px #000;
+  width: 40%;
 }
 .cta-btn a {
   text-decoration: none;
@@ -79,9 +69,16 @@ header ul a {
 }
 
 .testimonials {
+  display: flex;
+  align-content: center;
+  justify-content: center;
   text-align: center;
 }
 .testimonials .card {
+  background-color: #FFEB50;
+  font-family: "Righteous", cursive;
+  padding-top: 10%;
+  color: #00CF9C;
   margin: 1em;
   height: 150px;
   width: 150px;
@@ -140,14 +137,9 @@ header ul a {
 }
 
 @media only screen and (min-width: 414px) {
-  .cta h1 {
-    font-size: 60pt;
-    padding-bottom: 10%;
-  }
-}
-@media only screen and (min-width: 799px) {
-  .cta-title {
-    font-size: 50pt;
+  .cta {
+    align-content: center;
+    justify-content: center;
   }
 }
 @media only screen and (min-width: 1228px) {

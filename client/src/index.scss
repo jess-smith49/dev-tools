@@ -55,34 +55,23 @@ header {
 
 .cta {
     text-align: center;
-    align-content: center;
     overflow: auto;
-    justify-content: center;
     background: $gradient;
-    height: 70vh;
-    padding: 10%;
-    &-title {
-        font-size: 35pt;
-        color: $yellow;
-        text-shadow: $pop-shadow;
-        margin-bottom: 15%;
-    }
+    height: 60vh;
     
+  
     &-text {
-        background-color: rgba(255,255,255,0.3);
-        box-shadow: 10px 10px 8px #000;
-        border-radius: 15px;
+        float: left;
         font-family: $reg-text;
         font-size: 15pt;
-        padding: 10% 5% 10% 5%;
         line-height: 1.5em;
-        //text-shadow: 10px 10px 8px #000;
+        text-shadow: 10px 10px 8px #000;
     }
 
     
 
     &-buttons {
-        margin-top: 10%;
+       padding-top: 5%;
     }
     &-btn {
         list-style: none;
@@ -94,6 +83,7 @@ header {
         font-size: 15pt;
         padding: 10px;
         box-shadow: 10px 10px 8px #000;
+        width: 40%;
         a {
             text-decoration: none;
 
@@ -110,9 +100,15 @@ header {
 }
 
 .testimonials {
-
+    display: flex;
+    align-content: center;
+    justify-content: center;
     text-align: center;
     .card {
+        background-color: $yellow;
+        font-family: $fancy-font;
+        padding-top: 10%;
+        color: $green;
         margin: 1em;
         height: 150px;
         width: 150px;
@@ -185,25 +181,15 @@ header {
 //large phones
 @media only screen and (min-width: 414px) {
     .cta {
-        
-        h1 {
-            font-size: 60pt;
-            padding-bottom: 10%;
-        }
-      
+        align-content: center;
+        justify-content: center;
     }
 }
 
 //tablets
 @media only screen and (min-width: 799px) {
 
-    .cta {
-        &-title {
-            font-size: 50pt;
-        }
-
-      
-    }
+  
 }
 
 //desktop

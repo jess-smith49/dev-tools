@@ -21,12 +21,17 @@ export default function Dashboard() {
                 </Card.Body>
             </Card>
             <Card style={{ width: '15rem' }}>
-                <Card.Body>
+            <Card.Body>
                 <Button variant="primary" onClick={handleShow}>
                     Create your own set
                 </Button>
                 <Modal show={show} onHide={handleClose}>
-                    <CreateSet />
+                <Modal show={show} onHide={handleClose}>
+               <Modal.Header closeButton>
+                   <Modal.Title>Modal heading</Modal.Title>
+               </Modal.Header>
+               <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+           </Modal>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
