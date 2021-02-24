@@ -13,12 +13,12 @@ export default function Dashboard() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [setName, setText] = useState({set: ''});
+    const [setName, setText] = useState('');
     const [addSet, {error}] = useMutation(ADD_SET);
 
     const handleChange = e => {
-        //const {name, value} = e.target;
-
+        const {name, value} = e.target;
+        console.log(setName);
         setText(e.target.value)
     
 };
@@ -37,12 +37,9 @@ export default function Dashboard() {
             console.log(error)
         }
 
-
     }
 
     
-
-
     return (
         <section className="dash-">
             <Header />
@@ -50,7 +47,7 @@ export default function Dashboard() {
             <CardDeck>
             <Card style={{ width: '15rem' }}>
                 <Card.Body>
-                    <Link to='/flashcards'>Set Name Here</Link>
+                    <Link to='/flashcards'>Enter Your Set Name Here</Link>
                 </Card.Body>
             </Card>
             <Card style={{ width: '15rem' }}>
@@ -61,13 +58,13 @@ export default function Dashboard() {
                
                 <Modal show={show} onHide={handleClose}>
                <Modal.Header closeButton>
-                   <Modal.Title>Modal heading</Modal.Title>
+                   <Modal.Title>Enter a Name for Your Set</Modal.Title>
                </Modal.Header>
                <Modal.Body>
                    <Form onSubmit={handleFormSubmit}>
-                       <h1>Add Set</h1>
+                       <h1>Name:</h1>
                        <textarea
-                        placeholder="Name"
+                        
                         name="set"
                         value={setName}
                         onChange={handleChange}
@@ -80,7 +77,7 @@ export default function Dashboard() {
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                           </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button type="submit" variant="primary" onClick={handleClose}>
                             Save Changes
                       </Button>
                     </Modal.Footer>
