@@ -57,21 +57,31 @@ header {
     text-align: center;
     overflow: auto;
     background: $gradient;
-    height: 60vh;
+    height: 60vh;  
+
     
-  
     &-text {
-        float: left;
+        padding-top: 10%;
+        p {
         font-family: $reg-text;
-        font-size: 15pt;
+        font-size: 20pt;
         line-height: 1.5em;
         text-shadow: 10px 10px 8px #000;
+        margin-left: 0;
+      }
     }
 
-    
+    .img {
+        padding: 30pt;
+
+        img {
+            max-width:100%;
+            height:auto;
+        }
+    }
 
     &-buttons {
-       padding-top: 5%;
+        padding-top: 10%;
     }
     &-btn {
         list-style: none;
@@ -80,10 +90,10 @@ header {
         border-radius: 15px;
         margin: 20pt;
         font-family: $reg-text;
-        font-size: 15pt;
+        font-size: 13pt;
         padding: 10px;
         box-shadow: 10px 10px 8px #000;
-        width: 40%;
+       
         a {
             text-decoration: none;
 
@@ -100,14 +110,12 @@ header {
 }
 
 .testimonials {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+
     text-align: center;
     .card {
         background-color: $yellow;
         font-family: $fancy-font;
-        padding-top: 10%;
+        padding-top: 5%;
         color: $green;
         margin: 1em;
         height: 150px;
@@ -173,6 +181,32 @@ header {
     }
 }
 
+.dash {
+    &-wrap {
+        padding: 5%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+        .card {
+            max-width: 400px;
+            min-height: 200px;
+            border-radius: 15px;
+            padding-top: 2%;
+            background-color: $blue;
+        }
+
+        a {
+            font-family: $fancy-font;
+            font-size: 20pt;
+            color: $yellow;
+        }
+
+        .create {
+            background-color: $yellow;
+        }
+}
+
 
 
 
@@ -184,11 +218,18 @@ header {
         align-content: center;
         justify-content: center;
     }
+
+    // .testimonials {
+    //     display: flex;
+    //     align-content: center;
+    //     justify-content: center;
+    // }
 }
 
 //tablets
 @media only screen and (min-width: 799px) {
 
+    
   
 }
 

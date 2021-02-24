@@ -11,27 +11,26 @@ export default function Dashboard() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <section className="dash-">
+        <div>
             <Header />
+        <section className="dash">
 
-            <CardDeck>
-            <Card style={{ width: '15rem' }}>
+            <CardDeck className="dash-wrap">
+            <Card md={2}>
                 <Card.Body>
                     <Link to='/flashcards'>Set Name Here</Link>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '15rem' }}>
+            <Card className="create">
             <Card.Body>
                 <Button variant="primary" onClick={handleShow}>
                     Create your own set
                 </Button>
                 <Modal show={show} onHide={handleClose}>
-                <Modal show={show} onHide={handleClose}>
-               <Modal.Header closeButton>
+                    <Modal.Header closeButton>
                    <Modal.Title>Modal heading</Modal.Title>
-               </Modal.Header>
+                 </Modal.Header>
                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-           </Modal>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
@@ -47,5 +46,6 @@ export default function Dashboard() {
                
             </CardDeck>
         </section>
+        </div>
     )
 };
