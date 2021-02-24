@@ -1,6 +1,8 @@
-import { React, useState }  from 'react';
-import { CardGroup, Card, Modal, Button } from 'react-bootstrap';
+import { React, useState } from 'react';
+import { CardGroup, Card, Modal, Button, CardDeck } from 'react-bootstrap';
 import FlashCard from '../../components/FlashCard';
+import Header from '../../components/Header';
+
 
 
 export default function CardSet() {
@@ -8,13 +10,13 @@ export default function CardSet() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
- 
+
     return (
-        
-        <div className="flashcards">
-            <CardGroup>
-                <FlashCard />
-            <Card style={{ width: '15rem' }}>
+        <section className="set-wrap">
+            <Header />
+            <div className="set-body">
+                <h1>HTML</h1>
+                <div className="set-modal"></div>
                 <Button variant="primary" onClick={handleShow}>
                     Add A Card To Your Set
                 </Button>
@@ -32,8 +34,12 @@ export default function CardSet() {
                       </Button>
                     </Modal.Footer>
                 </Modal>
-            </Card>
-            </CardGroup>
-        </div>
+            <div className="card-wrap">
+                <CardGroup>
+                    <FlashCard />
+                </CardGroup>
+            </div>
+            </div>
+        </section >
     )
 }
