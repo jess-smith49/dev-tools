@@ -52,12 +52,18 @@ const resolvers = {
 
             addSet: async(parent, {setName}, context) => {
                 if(context.user){
+                    const newSet = await Set.create(
+                            {set: setName},
+                            {new: true}
+
+                    )
                     const updatedUser = await User.findOneAndUpdate(
                         {_id: context.user_id},
-                        {$push: {set: setName}},
+                        {$push: {setName: newSet}},
                         {new: true}
                     )
                 return updatedUser;
+                
                 }
               
             },

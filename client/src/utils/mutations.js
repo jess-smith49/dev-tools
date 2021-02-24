@@ -30,11 +30,13 @@ export const ADD_SET = gql `
             set {
                 _id
                 setName
-                    card {
+                user{
                     _id
-                    question
-                    answer
+                    username
+                    email
+                    sets: [Sets]
                 }
+                    
             
             }
         }
