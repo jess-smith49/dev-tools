@@ -151,8 +151,15 @@ header ul a {
   max-width: 400px;
   min-height: 200px;
   border-radius: 15px;
-  padding-top: 2%;
   background-color: #449DD1;
+  padding-top: 2%;
+}
+.dash .card-body .btn {
+  font-family: "Righteous", cursive;
+  background: none;
+  color: #00CF9C;
+  font-size: 20pt;
+  border: none;
 }
 .dash a {
   font-family: "Righteous", cursive;
@@ -161,6 +168,41 @@ header ul a {
 }
 .dash .create {
   background-color: #FFEB50;
+}
+.dash button {
+  background: none;
+}
+
+.set-wrap {
+  background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
+  text-align: center;
+}
+.set-wrap h1 {
+  font-size: 30pt;
+}
+.set-wrap .card-wrap {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.set-wrap .card-wrap .card {
+  margin: 20px 10px 20px 10px;
+  min-height: 200px;
+  max-width: 400px;
+  min-width: 200px;
+  background: rgba(68, 157, 209, 0.5);
+  border: none;
+  border-radius: 15px;
+}
+.set-wrap .set-body {
+  padding: 3%;
+}
+.set-wrap button {
+  background-color: #FFEB50;
+  color: #449DD1;
+  border: none;
+  height: 75px;
+  width: 100px;
 }
 
 @media only screen and (min-width: 414px) {

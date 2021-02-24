@@ -192,8 +192,20 @@ header {
             max-width: 400px;
             min-height: 200px;
             border-radius: 15px;
-            padding-top: 2%;
             background-color: $blue;
+            padding-top: 2%;
+            
+            &-body {
+                
+                .btn {
+                    font-family: $fancy-font;
+                    background: none;
+                    color: $green;
+                    font-size: 20pt;
+                    border: none;
+                }
+                
+            }
         }
 
         a {
@@ -204,10 +216,51 @@ header {
 
         .create {
             background-color: $yellow;
+
+        }
+        button {
+            background: none;
         }
 }
 
+.set-wrap {
+    background: $gradient;
+    text-align: center;
 
+    h1 {
+        font-size: 30pt;
+    }
+    
+    .card-wrap {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+            .card{
+                margin: 20px 10px 20px 10px;
+                min-height: 200px;
+                max-width: 400px;
+                min-width: 200px;
+                background: rgba(68, 157, 209, 0.5);
+                border: none;
+                border-radius: 15px;
+            }
+         }
+
+        .set-body {
+            padding: 3%;
+        }
+
+            button {
+                background-color: $yellow;
+                color: $blue;
+                border: none;
+                height: 75px;
+                width: 100px
+            };
+        
+     }
+ 
 
 
 //media queries
