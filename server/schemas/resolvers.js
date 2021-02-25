@@ -52,13 +52,39 @@ const resolvers = {
 
             addSet: async(parent, {setName}, context) => {
                 if(context.user){
+                    const newSet = await Sets.create(
+                            {set: setName},
+                            //{$push: {setName: newSet}}
+                            {new: true}
+
+                    )
+                    
                     const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        {$push: {set: setName}},
+                        {_id: context.user._id},
+                        {$push: {sets: newSet}},
                         {new: true}
                     )
                 return updatedUser;
+                
                 }
+
+
+                    ///CREATING A NEW SET
+                // if(context.user){
+                //     console.log(context)
+                //     const newSet = new Sets({setName});
+
+                    
+                //        await User.findOneAndUpdate(
+                //         {_id: context.user._id},
+                //         //{$push: {setName: newSet}},
+                //         {$push: {sets: {setName}}},
+                //         {new: true}
+                //     ) 
+
+                //     return newSet
+                // }
+                 throw new AuthenticationError('Not logged in');
               
             },
 
