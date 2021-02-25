@@ -51,40 +51,46 @@ const resolvers = {
             },
 
             addSet: async(parent, {setName}, context) => {
-                //if(context.user){
-                //     const newSet = await Sets.create(
-                //             {set: setName},
-                //             //{$push: {setName: newSet}}
-                //             {new: true}
+                if(context.user){
+                    const newSet = await Sets.create(
+                            {set: setName},
+                            //{$push: {setName: newSet}}
+                            {new: true}
 
-                //     )
+                    )
                     
-                //     const updatedUser = await User.findOneAndUpdate(
-                //         {_id: context.user_id},
-                //         {$push: {setName: newSet}},
-                //         {new: true}
-                //     )
-                // return updatedUser;
+                    const updatedUser = await User.findOneAndUpdate(
+                        {_id: context.user_id},
+                        {$push: {setName: newSet}},
+                        {new: true}
+                    )
+                return updatedUser;
                 
                 
                 //throw new AuthenticationError('You need to be logged in!');
                 ///CREATING A NEW SET
-                if(context.user){
-                    console.log(context)
-                    const newSet = new Sets({setName});
+                // if(context.user){
+                //     console.log(context)
+                //     const newSet = new Sets({setName});
 
-                    await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        //{$push: {setName: newSet}},
-                        {$push: {sets: {setName}}},
-                        {new: true}
-                    )
+                //     try {
+                //        await User.findOneAndUpdate(
+                //         {_id: context.user_id},
+                //         //{$push: {setName: newSet}},
+                //         {$push: {sets: {setName}}},
+                //         {new: true}
+                //     ) 
+                //     }
+                //     catch{
+                //         console.log("hello");
+                //     }
+                    
 
-                    return newSet
-                }
-                throw new AuthenticationError('Not logged in');
+                //     return newSet
+                // }
+                // throw new AuthenticationError('Not logged in');
                 
-              
+                    }
             },
 
             addCard: async(parent, {question, answer}, context) => {
