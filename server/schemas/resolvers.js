@@ -1,6 +1,7 @@
 const {User, Sets, Card} = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+const { set } = require('../config/connection');
 
 const resolvers = {
        // me query
@@ -55,43 +56,41 @@ const resolvers = {
                 return {token, user};
             },
 
-            addSet: async (parent, {setId}, context) => {
+            addSet: async (parent, args, context) => {
                 if(context.user){
-                    try {
-                        const updatedUser = await User.findOneAndUpdate(
-                            {_id: context.user._id},
-                            {$push: {setId: setId}},
-                            {new: true}
-                        )
-
-                        return updatedUser;
-                    } catch (error) {
-                        console.error(error);
-                    };
+                    const newSet = await Sets.create(args);
+                    await User.findByIdAndUpdate(
+                        {_id: context.user._id},
+                        {$push: {sets: newSet}},
+                        {new: true}
+                    )
+                    return newSet;
                 }
+                throw new AuthenticationError('You need to be logged in!')
               
             },
 
-            addCard: async(parent, {setName, question, answer}, context) => {
+            addCard: async(parent, { setId, question, answer}, context) => {
+                console.log(question);
+                console.log(answer);
                 if(context.user){
-                    const newCard = await Card.create(
-                        {question: question, answer: answer},
-                    )
-                    const updatedSet = await Sets.findOneAndUpdate(
-                        {setName: setName},
+                    const newCard = await Card.create({question, answer});
+                    await Sets.findOneAndUpdate(
+                        {_id: setId},
                         {$push: {card: newCard}},
                         {new: true}
                     )
-                return updatedSet;
+
+                return newCard;
                 }
                 
             },
 
-            removeSet: async(parent, {setName}, context) => {
+            removeSet: async(parent, {setId}, context) => {
                 if(context.user){
                     const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        {$pull: {sets: setName}},
+                        {_id: context.user._id},
+                        {$pull: {sets: setId } },
                         {new: true}
                     );
 
@@ -99,10 +98,10 @@ const resolvers = {
                 }
             },
 
-            removeCard: async(parent, {question, answer}, context) => {
+            removeCard: async(parent, {cardId}, context) => {
                 if(context.user) {
                     const deleteCard = await Card.findOneAndDelete(
-                        {question: question, answer: answer},
+                        {_id: cardId},
                         {$pull: {id: card._id}}
                         
                     )
