@@ -15,10 +15,8 @@ import Signup from './pages/SignupForm';
 import Login from './pages/LoginForm';
 import Card from './components/Card';
 import Dashboard from './pages/Dashboard'
-import CardSet from './pages/CardSet';
-// import 'react-multi-carousel/lib/styles.css';
-import SeededSets from './components/SeededSets';
-// import SeededCards from './components/SeededCards';
+import SetWrapper from './pages/SetWrapper';
+import 'react-multi-carousel/lib/styles.css';
 
 const client = new ApolloClient({
   request: operation => {
@@ -48,8 +46,8 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/cardset">
-            <CardSet />
+          <Route path="/flashcards">
+            <SetWrapper />
           </Route>
           <Route path="/">
             <Landing />

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_CARD } from '../../utils/mutations';
-import  { QUERY_CARD } from '../../utils/queries';
 
 
 function Card() {

@@ -35,7 +35,7 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addSet(setName: String!): Sets
+    addSet(setId: ID!): User
     addCard(setName: String!, question: String!, answer: String!): Sets
     removeSet(setId: ID!): Sets
     removeCard(cardId: ID!): Sets

@@ -32,30 +32,29 @@ header ul a {
 
 .cta {
   text-align: center;
-  align-content: center;
   overflow: auto;
-  justify-content: center;
   background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
-  height: 80vh;
-  padding: 10%;
-}
-.cta-title {
-  font-size: 35pt;
-  color: #FFEB50;
-  text-shadow: 0 2px 2px #4486d1, -2px 5px 1px #44b5d1, -6px 11px 0px #44c0d1;
-  margin-bottom: 15%;
+  height: 60vh;
 }
 .cta-text {
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 10px 10px 8px #000;
-  border-radius: 15px;
+  padding-top: 10%;
+}
+.cta-text p {
   font-family: "Roboto", sans-serif;
-  font-size: 15pt;
-  padding: 10% 5% 10% 5%;
+  font-size: 20pt;
   line-height: 1.5em;
+  text-shadow: 10px 10px 8px #000;
+  margin-left: 0;
+}
+.cta .img {
+  padding: 30pt;
+}
+.cta .img img {
+  max-width: 100%;
+  height: auto;
 }
 .cta-buttons {
-  margin-top: 10%;
+  padding-top: 10%;
 }
 .cta-btn {
   list-style: none;
@@ -64,7 +63,7 @@ header ul a {
   border-radius: 15px;
   margin: 20pt;
   font-family: "Roboto", sans-serif;
-  font-size: 15pt;
+  font-size: 13pt;
   padding: 10px;
   box-shadow: 10px 10px 8px #000;
 }
@@ -78,12 +77,20 @@ header ul a {
   box-shadow: 3px 5px 8px #000 inset;
 }
 
-.carosuel {
-  height: 20vh;
+.testimonials {
+  text-align: center;
 }
-.carosuel-item {
+.testimonials .card {
   background-color: #FFEB50;
-  padding: 20px 0px 20px 0px;
+  font-family: "Righteous", cursive;
+  padding-top: 5%;
+  color: #00CF9C;
+  margin: 1em;
+  height: 150px;
+  width: 150px;
+}
+.testimonials .card-group {
+  padding: 1em;
 }
 
 .form {
@@ -135,29 +142,73 @@ header ul a {
   bottom: 0;
 }
 
-@media only screen and (min-width: 414px) {
-  .cta h1 {
-    font-size: 60pt;
-    padding-bottom: 10%;
-  }
-  .cta-buttons {
-    margin-top: 20%;
-    padding-bottom: 10px;
-  }
-  .cta-btn {
-    margin-top: 15%;
-    width: 90%;
-  }
+.dash-wrap {
+  padding: 5%;
+  text-align: center;
+  justify-content: center;
 }
-@media only screen and (min-width: 799px) {
-  .cta-title {
-    font-size: 50pt;
-  }
-  .cta-buttons {
-    margin-top: 10%;
-  }
-  .cta-btn {
-    margin-top: 5%;
+.dash .card {
+  max-width: 400px;
+  min-height: 200px;
+  border-radius: 15px;
+  background-color: #449DD1;
+  padding-top: 2%;
+}
+.dash .card-body .btn {
+  font-family: "Righteous", cursive;
+  background: none;
+  color: #00CF9C;
+  font-size: 20pt;
+  border: none;
+}
+.dash a {
+  font-family: "Righteous", cursive;
+  font-size: 20pt;
+  color: #FFEB50;
+}
+.dash .create {
+  background-color: #FFEB50;
+}
+.dash button {
+  background: none;
+}
+
+.set-wrap {
+  background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
+  text-align: center;
+}
+.set-wrap h1 {
+  font-size: 30pt;
+}
+.set-wrap .card-wrap {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.set-wrap .card-wrap .card {
+  margin: 20px 10px 20px 10px;
+  min-height: 200px;
+  max-width: 400px;
+  min-width: 200px;
+  background: rgba(68, 157, 209, 0.5);
+  border: none;
+  border-radius: 15px;
+}
+.set-wrap .set-body {
+  padding: 3%;
+}
+.set-wrap button {
+  background-color: #FFEB50;
+  color: #449DD1;
+  border: none;
+  height: 75px;
+  width: 100px;
+}
+
+@media only screen and (min-width: 414px) {
+  .cta {
+    align-content: center;
+    justify-content: center;
   }
 }
 @media only screen and (min-width: 1228px) {

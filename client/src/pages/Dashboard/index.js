@@ -13,22 +13,26 @@ export default function Dashboard() {
     const handleShow = () => setShow(true);
     // render seeded cards
     return (
-        <section className="dash-">
+        <div>
             <Header />
+        <section className="dash">
 
-            <CardDeck>
-            <Card style={{ width: '15rem' }}>
+            <CardDeck className="dash-wrap">
+            <Card md={2}>
                 <Card.Body>
-                    <Link to='/cardset'>Set Name Here</Link>
+                    <Link to='/flashcards'>Set Name Here</Link>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '15rem' }}>
-                <Card.Body>
+            <Card className="create">
+            <Card.Body>
                 <Button variant="primary" onClick={handleShow}>
                     Create your own set
                 </Button>
                 <Modal show={show} onHide={handleClose}>
-                    <CreateSet />
+                    <Modal.Header closeButton>
+                   <Modal.Title>Modal heading</Modal.Title>
+                 </Modal.Header>
+               <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
                             Close
@@ -40,7 +44,10 @@ export default function Dashboard() {
                 </Modal>
                 </Card.Body>
             </Card>
+           
+               
             </CardDeck>
         </section>
+        </div>
     )
 };
