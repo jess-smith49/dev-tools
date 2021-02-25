@@ -29,14 +29,14 @@ type Query {
     me: User
     cards: [Card]
     sets: [Sets]
-    set(setName: String!): [Sets]
+    set(setName: String!): Sets
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addSet(setName: String!): Sets
-    addCard(question: String!, answer: String!): Sets
+    addCard(setName: String!, question: String!, answer: String!): Sets
     removeSet(setId: ID!): Sets
     removeCard(cardId: ID!): Sets
 }

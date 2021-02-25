@@ -50,33 +50,35 @@ const resolvers = {
             },
 
             addUser: async(parent, args) => {
-                console.log(args)
                 const user = await User.create(args)
                 const token = signToken(user);
-                console.log("hello")
                 return {token, user};
             },
 
-            addSet: async(parent, {setName}, context) => {
+            addSet: async (parent, {setId}, context) => {
                 if(context.user){
-                    const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        {$push: {set: setName}},
-                        {new: true}
-                    )
-                return updatedUser;
+                    try {
+                        const updatedUser = await User.findOneAndUpdate(
+                            {_id: context.user._id},
+                            {$push: {setId: setId}},
+                            {new: true}
+                        )
+
+                        return updatedUser;
+                    } catch (error) {
+                        console.error(error);
+                    };
                 }
               
             },
 
-            addCard: async(parent, {question, answer}, context) => {
+            addCard: async(parent, {setName, question, answer}, context) => {
                 if(context.user){
                     const newCard = await Card.create(
-                        {set: set, question: question, answer: answer},
-                        {new: true}
+                        {question: question, answer: answer},
                     )
                     const updatedSet = await Sets.findOneAndUpdate(
-                        {_id: context.user._id},
+                        {setName: setName},
                         {$push: {card: newCard}},
                         {new: true}
                     )
