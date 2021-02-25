@@ -18,14 +18,14 @@ export const QUERY_ME = gql`
     }
 }
 `
-export const QUERY_SET = gql`
-    query getSets($id: ID!) {
-        set(_id: $id){
-            _id
-            setName
-        }
-    }
-`;
+// export const QUERY_SET = gql`
+//     query getSets($id: ID!) {
+//         set(_id: $id){
+//             _id
+//             setName
+//         }
+//     }
+// `;
 
 
 export const QUERY_CARD = gql`

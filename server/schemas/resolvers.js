@@ -60,12 +60,13 @@ const resolvers = {
                     )
                     
                     const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
+                        {_id: context.user._id},
                         {$push: {setName: newSet}},
                         {new: true}
                     )
                 return updatedUser;
                 
+                    }
                 
                 //throw new AuthenticationError('You need to be logged in!');
                 ///CREATING A NEW SET
@@ -73,24 +74,19 @@ const resolvers = {
                 //     console.log(context)
                 //     const newSet = new Sets({setName});
 
-                //     try {
+                    
                 //        await User.findOneAndUpdate(
-                //         {_id: context.user_id},
+                //         {_id: context.user._id},
                 //         //{$push: {setName: newSet}},
                 //         {$push: {sets: {setName}}},
                 //         {new: true}
                 //     ) 
-                //     }
-                //     catch{
-                //         console.log("hello");
-                //     }
-                    
 
                 //     return newSet
                 // }
                 // throw new AuthenticationError('Not logged in');
                 
-                    }
+                    
             },
 
             addCard: async(parent, {question, answer}, context) => {
