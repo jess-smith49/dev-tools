@@ -13,7 +13,6 @@ import Footer from './components/Footer';
 //page imports
 import Signup from './pages/SignupForm';
 import Login from './pages/LoginForm';
-import Card from './components/Card';
 import Dashboard from './pages/Dashboard'
 import SetWrapper from './pages/SetWrapper';
 import 'react-multi-carousel/lib/styles.css';

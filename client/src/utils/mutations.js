@@ -42,8 +42,8 @@ export const ADD_SET = gql `
 `
 
 export const ADD_CARD = gql `
-    mutation addCard($question: String!, $answer: String!){
-        addCard(question: $question, answer: $answer){
+    mutation addCard($setId: ID!, $question: String!, $answer: String!){
+        addCard(setId: $setId, question: $question, answer: $answer){
             set {
                 _id
                 setName
@@ -58,8 +58,8 @@ export const ADD_CARD = gql `
     `
 
 export const REMOVE_SET = gql `
-    mutation removeSet($setName: String!){
-        removeSet(setName: $setName){
+    mutation removeSet($setId: ID!){
+        removeSet(setId: $setId){
             set {
                 _id
                 setName
@@ -74,8 +74,8 @@ export const REMOVE_SET = gql `
 `
 
 export const REMOVE_CARD = gql `
-    mutation removeCard($question: String!, $answer: String!){
-        removeCard(question: $question, answer: $answer){
+    mutation removeCard($setId: ID!, $cardId: ID!){
+        removeCard(setId: $setId, cardId: $cardId){
             set {
                 _id
                 setName 
