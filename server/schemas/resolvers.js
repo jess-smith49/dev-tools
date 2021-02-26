@@ -12,7 +12,7 @@ const resolvers = {
                     {_id: context.user._id})
                     .select('-__v -password')
                     .populate('sets')
-                    .populate('cards')
+                    //.populate('cards')
 
                     return user;
             }
@@ -80,7 +80,7 @@ const resolvers = {
                         {_id: setId},
                         {$push: {cards: newCard}},
                         {new: true}
-                    ).populate('cards')
+                    )//.populate('cards')
 
                 return newCard;
                 }
