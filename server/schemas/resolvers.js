@@ -1,6 +1,7 @@
 const {User, Sets, Card} = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+const { set } = require('../config/connection');
 
 const resolvers = {
        // me query
@@ -9,7 +10,9 @@ const resolvers = {
             if(context.user){
                 const user = await User.findOne(
                     {_id: context.user._id})
-                    //.select('-__v -password')
+                    .select('-__v -password')
+                    .populate('sets');
+
                     return user;
             }
             throw new AuthenticationError("Not logged in");
@@ -17,10 +20,14 @@ const resolvers = {
 
         cards: async(parent, args) => {            
             
-            return Card.find();
+            return await Card.find();
         },
-        set: async() => {
+        sets: async() => {
             return await Sets.find().populate('cards');
+        },
+        set: async(parents, {setName}) => {
+            return await Sets.findOne({ setName })
+                .populate('cards');
         }
     },
 
@@ -46,43 +53,44 @@ const resolvers = {
             addUser: async(parent, args) => {
                 const user = await User.create(args)
                 const token = signToken(user);
-                console.log("hello")
                 return {token, user};
             },
 
-            addSet: async(parent, {setName}, context) => {
+            addSet: async (parent, args, context) => {
                 if(context.user){
-                    const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        {$push: {set: setName}},
+                    const newSet = await Sets.create(args);
+                    await User.findByIdAndUpdate(
+                        {_id: context.user._id},
+                        {$push: {sets: newSet}},
                         {new: true}
                     )
-                return updatedUser;
+                    return newSet;
                 }
+                throw new AuthenticationError('You need to be logged in!')
               
             },
 
-            addCard: async(parent, {question, answer}, context) => {
+            addCard: async(parent, { setId, question, answer}, context) => {
+                console.log(question);
+                console.log(answer);
                 if(context.user){
-                    const newCard = await Card.create(
-                        {set: set, question: question, answer: answer},
-                        {new: true}
-                    )
-                    const updatedSet = await Sets.findOneAndUpdate(
-                        {_id: context.user._id},
+                    const newCard = await Card.create({question, answer});
+                    await Sets.findOneAndUpdate(
+                        {_id: setId},
                         {$push: {card: newCard}},
                         {new: true}
                     )
-                return updatedSet;
+
+                return newCard;
                 }
                 
             },
 
-            removeSet: async(parent, {setName}, context) => {
+            removeSet: async(parent, {setId}, context) => {
                 if(context.user){
                     const updatedUser = await User.findOneAndUpdate(
-                        {_id: context.user_id},
-                        {$pull: {sets: setName}},
+                        {_id: context.user._id},
+                        {$pull: {sets: setId } },
                         {new: true}
                     );
 
@@ -90,10 +98,10 @@ const resolvers = {
                 }
             },
 
-            removeCard: async(parent, {question, answer}, context) => {
+            removeCard: async(parent, {cardId}, context) => {
                 if(context.user) {
                     const deleteCard = await Card.findOneAndDelete(
-                        {question: question, answer: answer},
+                        {_id: cardId},
                         {$pull: {id: card._id}}
                         
                     )

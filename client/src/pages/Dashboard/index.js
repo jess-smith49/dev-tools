@@ -3,19 +3,28 @@ import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
+<<<<<<< HEAD
 import { QUERY_ME } from '../../utils/queries';
+=======
+import { QUERY_SET } from '../../utils/queries';
+
+>>>>>>> develop
 
 export default function Dashboard() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+<<<<<<< HEAD
 
     const {data} = useQuery(QUERY_ME);
     if(data){
         userSets = data.userSets;
     };
  
+=======
+    // render seeded cards
+>>>>>>> develop
     return (
         <div>
             <Header />

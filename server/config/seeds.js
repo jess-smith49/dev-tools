@@ -9,7 +9,6 @@ db.once("open", async () => {
     //add seed sets
   
 
-
   // delete current cards
   await Card.deleteMany();
   await Sets.deleteMany();
@@ -151,9 +150,7 @@ db.once("open", async () => {
   ]);
   console.log("sets seeded");
 
-  
-  
-  
+
   console.log("cards seeded");
   // deleted current users.
   await User.deleteMany();
@@ -171,3 +168,4 @@ db.once("open", async () => {
   console.log("users seeded");
   process.exit();
 });
+

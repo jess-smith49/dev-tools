@@ -14,6 +14,7 @@ const SignUp = () => {
     const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleChange = e => {
+        console.log(e.target)
         const { name, value } = e.target;
 
         setFormState({
