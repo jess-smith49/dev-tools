@@ -3,13 +3,19 @@ import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
-
+import { QUERY_ME } from '../../utils/queries';
 
 export default function Dashboard() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const {data} = useQuery(QUERY_ME);
+    if(data){
+        userSets = data.userSets;
+    };
+ 
     return (
         <div>
             <Header />
