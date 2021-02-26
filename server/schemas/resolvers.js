@@ -11,7 +11,8 @@ const resolvers = {
                 const user = await User.findOne(
                     {_id: context.user._id})
                     .select('-__v -password')
-                    .populate('sets');
+                    .populate('sets')
+                    .populate('cards')
 
                     return user;
             }
@@ -77,9 +78,9 @@ const resolvers = {
                     const newCard = await Card.create({question, answer});
                     await Sets.findOneAndUpdate(
                         {_id: setId},
-                        {$push: {card: newCard}},
+                        {$push: {cards: newCard}},
                         {new: true}
-                    )
+                    ).populate('cards')
 
                 return newCard;
                 }
