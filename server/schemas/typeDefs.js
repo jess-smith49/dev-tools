@@ -15,7 +15,7 @@ type Sets {
 }
 
 type Card {
-    _id: ID
+    _id: ID!
     question: String
     answer: String
 }

@@ -1,7 +1,6 @@
 const {User, Sets, Card} = require('../models');
 const {AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { set } = require('../config/connection');
 
 const resolvers = {
        // me query
@@ -11,7 +10,13 @@ const resolvers = {
                 const user = await User.findOne(
                     {_id: context.user._id})
                     .select('-__v -password')
-                    .populate('sets');
+                    .populate('sets')
+                    .populate(
+                        {
+                            path: 'sets',
+                            populate: { path: 'cards'}
+                        }
+                    );
 
                     return user;
             }
@@ -63,7 +68,7 @@ const resolvers = {
                         {_id: context.user._id},
                         {$push: {sets: newSet}},
                         {new: true}
-                    )
+                    ).populate('cards');
                     return newSet;
                 }
                 throw new AuthenticationError('You need to be logged in!')
@@ -71,15 +76,15 @@ const resolvers = {
             },
 
             addCard: async(parent, { setId, question, answer}, context) => {
-                console.log(question);
-                console.log(answer);
+
                 if(context.user){
                     const newCard = await Card.create({question, answer});
-                    await Sets.findOneAndUpdate(
+                    console.log(newCard);
+                    await Sets.findByIdAndUpdate(
                         {_id: setId},
-                        {$push: {card: newCard}},
+                        {$push: {cards: newCard}},
                         {new: true}
-                    )
+                    ).populate('cards');
 
                 return newCard;
                 }
