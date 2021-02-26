@@ -3,11 +3,12 @@ import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
-import { QUERY_SET } from '../../utils/queries';
+
 
 
 export default function Dashboard() {
     const [show, setShow] = useState(false);
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

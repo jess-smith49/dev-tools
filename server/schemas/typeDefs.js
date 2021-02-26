@@ -27,8 +27,6 @@ type Auth {
 
 type Query {
     me: User
-    cards: [Card]
-    sets: [Sets]
     set(setName: String!): Sets
 }
 
@@ -38,7 +36,7 @@ type Mutation {
     addSet(setName: String!): Sets
     addCard(setId: ID!, question: String!, answer: String!): Sets
     removeSet(setId: ID!): Sets
-    removeCard(cardId: ID!): Sets
+    removeCard(setId: ID!, cardId: ID!): Sets
 }
 
 `
