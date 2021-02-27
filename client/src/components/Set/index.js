@@ -15,8 +15,12 @@ function Set() {
     //console.log(userData);
 
     // query seeded sets
-    const { data: setSeeds } = useQuery(QUERY_SEED_SET);
+    const {loading:setLoading, data: setSeeds } = useQuery(QUERY_SEED_SET);
     console.log(setSeeds);
+
+    if (loading || setLoading) {
+        return <div>Loading...</div>;
+      }
 
     // add a click handle to bring to cards
     return (
