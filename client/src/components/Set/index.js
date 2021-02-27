@@ -16,6 +16,7 @@ function Set() {
 
     // query seeded sets
     const { data: setSeeds } = useQuery(QUERY_SEED_SET);
+    const [initialSeeds, setInitialSeeds] = useState([]);
     console.log(setSeeds);
 
     // add a click handle to bring to cards
@@ -34,15 +35,20 @@ function Set() {
                     
                 </div>
             </div>
-            {userData.sets? (userData.sets?.map(set => {
-                return (
-                    <div key={set._id}>
-                        <h1>{set.setName}</h1>
-                    </div>
-                )
-            })) : (
-                <p> You have not created a set yet</p>
-            )}
+            <div>
+                <h1> {userData.username}'s Sets</h1>
+                <div>
+                    {userData.sets? (userData.sets?.map(set => {
+                        return (
+                            <div key={set._id}>
+                                <h1>{set.setName}</h1>
+                            </div>
+                        )
+                    })) : (
+                        <p> You have not created a set yet</p>
+                    )}
+                </div>
+            </div>
         </section>
     )
 }
