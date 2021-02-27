@@ -80,3 +80,17 @@ export const QUERY_SET = gql`
         }
     }
 `;
+
+export const QUERY_SEED_SET = gql`
+    query getSeededSets {
+        seededSets {
+            _id
+            setName
+            cards {
+                _id
+                question
+                answer
+            }
+        }
+    }
+`;

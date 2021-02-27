@@ -16,6 +16,7 @@ import Login from './pages/LoginForm';
 import Dashboard from './pages/Dashboard'
 import SetWrapper from './pages/SetWrapper';
 import 'react-multi-carousel/lib/styles.css';
+import Set from "./components/Set"
 
 const client = new ApolloClient({
   request: operation => {
@@ -33,6 +34,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Set />
        <Router>
         <div>
         <Switch>

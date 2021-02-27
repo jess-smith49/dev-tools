@@ -1,5 +1,5 @@
-import React from 'react';
-import { QUERY_ME } from '../../utils/queries';
+import React, { useEffect, useState } from 'react';
+import { QUERY_ME, QUERY_SEED_SET } from '../../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
 
 function Set() {
@@ -12,19 +12,37 @@ function Set() {
     // query user data
     const { loading , data } = useQuery(QUERY_ME);
     const userData = data?.me || {};
-    console.log(userData);
+    //console.log(userData);
 
+    // query seeded sets
+    const { data: setSeeds } = useQuery(QUERY_SEED_SET);
+    console.log(setSeeds);
 
-    // display all sets owned by user
+    // add a click handle to bring to cards
     return (
         <section>
-            {userData.sets?.map(set => {
+            <div className="seededSets">
+                <h1> Test out these decks! </h1>
+                <div>
+                    {setSeeds.seededSets.map(seeds => {
+                        return (
+                            <div key={seeds._id}>
+                                <h1>{seeds.setName}</h1>
+                            </div>
+                        )
+                    })}
+                    
+                </div>
+            </div>
+            {userData.sets? (userData.sets?.map(set => {
                 return (
                     <div key={set._id}>
                         <h1>{set.setName}</h1>
                     </div>
                 )
-            })}
+            })) : (
+                <p> You have not created a set yet</p>
+            )}
         </section>
     )
 }

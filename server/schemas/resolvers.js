@@ -34,6 +34,12 @@ const resolvers = {
         set: async (parents, { setName }) => {
             return await Sets.findOne({ setName })
                 .populate('cards');
+        },
+        seededSets: async (parents) => {
+            // const populateSeedSet = async() => {
+            return await Sets.find(
+                { setName: { $in: ['test-deck-Html', 'test-deck-JavaScript', 'test-deck-React']}}
+            ).populate('cards');
         }
     },
 
@@ -93,11 +99,11 @@ const resolvers = {
 
         removeSet: async (parent, { setId }, context) => {
             if (context.user) {
-                const deleteSet = await Sets.findOneAndDelete({ _id: setId});
+                const deleteSet = await Sets.findOneAndDelete({ _id: setId });
 
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { sets: {deleteSet} } },
+                    { $pull: { sets: { deleteSet } } },
                     { new: true }
                 );
 
@@ -111,7 +117,7 @@ const resolvers = {
 
                 const updatedSet = await Sets.findOneAndUpdate(
                     { _id: setId },
-                    { $pull: { cards: {deleteCard} } },
+                    { $pull: { cards: { deleteCard } } },
                     { new: true }
                 ).populate('cards');
 

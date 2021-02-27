@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_CARD } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
 
 
 function Card() {
-    // const [cardData, setCardData] = useState({
-    //     question: '',
-    //     answer: ''
-    // });
+    // set initial state of set name as blank
+    const [currentSet, selectedSet] = useState();
+    // once a set is clicked, set state of set name and render  cards from that set
 
-    // const { loading, data } = useQuery(QUERY_CARD);
-    // const cardInfo = data?.cards;
-    // console.log(cardInfo);
+    const { loading, data } = useQuery(QUERY_ME);
+    const userData = data?.me || {};
+
 
     // need to be able to create and add questions/answers to card
     // const [addCard, { error }] = useMutation(ADD_CARD);
@@ -25,7 +25,7 @@ function Card() {
 
     // }
 
-    // set function to populate card info with user input
+    // set function to populate cards
 
     return (
         <section>

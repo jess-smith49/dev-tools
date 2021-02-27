@@ -28,6 +28,7 @@ type Auth {
 type Query {
     me: User
     set(setName: String!): Sets
+    seededSets: [Sets]
 }
 
 type Mutation {

@@ -144,12 +144,11 @@ db.once("open", async () => {
   ])
 
   const sets = await Sets.insertMany([
-    { setName: "Html", cards: htmlCards },
-    { setName: "JavaScript", cards: jsCards },
-    { setName: "React", cards: reactCards },
+    { setName: "test-deck-Html", cards: htmlCards },
+    { setName: "test-deck-JavaScript", cards: jsCards },
+    { setName: "test-deck-React", cards: reactCards },
   ]);
   console.log("sets seeded");
-
 
   console.log("cards seeded");
   // deleted current users.
