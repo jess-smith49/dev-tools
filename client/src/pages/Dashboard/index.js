@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck, Form } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
 import {ADD_SET} from '../../utils/mutations';
+import {QUERY_ME} from '../../utils/queries';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
 
@@ -15,6 +16,16 @@ export default function Dashboard() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     // render seeded cards
+
+        let userSets = [];
+    //query stuff
+        const {data} = useQuery(QUERY_ME);
+        console.log(data);
+        if(data){
+            userSets = data.me.sets;
+        };
+        console.log(userSets);
+
        //mutation stuff
        const [setName, setText] = useState('');
        const [addSet, {error}] = useMutation(ADD_SET);
@@ -50,11 +61,16 @@ export default function Dashboard() {
         <section className="dash">
 
             <CardDeck className="dash-wrap">
-            <Card md={2}>
+            {userSets.map(set => {
+                return (
+                    <Card md={2}>
                 <Card.Body>
-                    <Link to='/flashcards'>Set Name Here</Link>
+                    {/* in the router add id after /flashcards/(idparamter) */}
+                    <Link to='/flashcards'>{set.setName}</Link>
                 </Card.Body>
             </Card>
+                )})}
+            
             <Card className="create">
             <Card.Body>
                 <Button variant="primary" onClick={handleShow}>
