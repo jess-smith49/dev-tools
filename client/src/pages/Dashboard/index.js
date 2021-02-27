@@ -15,9 +15,9 @@ export default function Dashboard() {
 
     const {data} = useQuery(QUERY_ME);
    
-    if(data){
-        userSets = user.sets;
-    };
+    // if(data){
+    //     userSets = user.sets;
+    // };
  
     return (
         <div>
