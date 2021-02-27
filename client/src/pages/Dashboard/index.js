@@ -1,23 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
 import { Card, Button, Modal, CardDeck } from 'react-bootstrap';
 import CreateSet from '../../components/AddSet';
 import { QUERY_ME } from '../../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
+//import store provifer
+import { useStoreContext } from '../../utils/GlobalState';
 
 export default function Dashboard() {
+    const [ state, dispatch ] = useStoreContext();
+    const { sets } = state;
+    const { data: setData } = useQuery(QUERY_ME);
+
     const [show, setShow] = useState(false);
 
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const {data} = useQuery(QUERY_ME);
+    useEffect(() => {
+        if ( setData ) {
+            dispatch({
+                type: QUERY_ME,
+                sets: setData.sets
+            })
+        }
+    }, [setData, dispatch]);
+
    
-    // if(data){
-    //     userSets = user.sets;
-    // };
  
     return (
         <div>

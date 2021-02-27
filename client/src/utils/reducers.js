@@ -5,7 +5,7 @@ import {
     DELETE_SET,
     CREATE_CARD,
     EDIT_CARD,
-    DELETE_SET
+    DELETE_CARD
 } from './actions';
 
 export const reducer = (state, action) => {

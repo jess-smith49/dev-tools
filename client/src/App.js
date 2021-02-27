@@ -17,6 +17,9 @@ import Dashboard from './pages/Dashboard'
 import SetWrapper from './pages/SetWrapper';
 import 'react-multi-carousel/lib/styles.css';
 
+//global state
+import { StoreProvider } from './utils/GlobalState';
+
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
@@ -33,25 +36,27 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-       <Router>
+      <Router>
         <div>
-        <Switch>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/flashcards">
-            <SetWrapper />
-          </Route>
-          <Route path="/">
-            <Landing />
-          </Route>
-        </Switch>
+          <StoreProvider>
+            <Switch>
+              <Route path="/signup">
+                <Signup />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route path="/flashcards">
+                <SetWrapper />
+              </Route>
+              <Route path="/">
+                <Landing />
+              </Route>
+            </Switch>
+          </StoreProvider>
         </div>
       </Router>
       <Footer />
