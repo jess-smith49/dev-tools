@@ -18,19 +18,19 @@ export const QUERY_ME = gql`
     }
 }
 `
-// export const QUERY_SETSEED = gql`
-//     query getSeededSets {
-//         set {
-//             _id
-//             setName
-//             cards {
-//                 _id
-//                 question
-//                 answer
-//             }
-//         }
-//     }
-// `;
+export const QUERY_SETSEED = gql`
+    query getSeededSets {
+        set {
+            _id
+            setName
+            cards {
+                _id
+                question
+                answer
+            }
+        }
+    }
+`;
 
 // export const QUERY_CARD = gql`
 //     query getCards {
