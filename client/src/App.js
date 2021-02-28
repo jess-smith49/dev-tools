@@ -47,7 +47,7 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/flashcards">
+          <Route path="/flashcards/:id">
             <SetWrapper />
           </Route>
           <Route path="/">

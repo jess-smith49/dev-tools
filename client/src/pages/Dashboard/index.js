@@ -55,6 +55,7 @@ export default function Dashboard() {
            handleClose();
    
        }
+
     return (
         <div>
             <Header />
@@ -66,7 +67,7 @@ export default function Dashboard() {
                     <Card md={2}>
                 <Card.Body>
                     {/* in the router add id after /flashcards/(idparamter) */}
-                    <Link to='/flashcards'>{set.setName}</Link>
+                    <Link to={`/flashcards/${set._id}`}>{set.setName}</Link>
                 </Card.Body>
             </Card>
                 )})}
