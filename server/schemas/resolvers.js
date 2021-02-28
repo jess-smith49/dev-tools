@@ -22,17 +22,9 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
-        // remove these two in final code
-        // cards: async(parent, args) => {            
 
-        //     return await Card.find();
-        // },
-
-        // sets: async() => {
-        //     return await Sets.find().populate('cards');
-        // },
-        set: async (parents, { setName }) => {
-            return await Sets.findOne({ setName })
+        set: async (parents, { _id }) => {
+            return await Sets.findOne({ _id })
                 .populate('cards');
         },
         seededSets: async (parents) => {
