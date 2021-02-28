@@ -11,33 +11,35 @@ import {QUERY_SET} from '../../utils/queries';
 //export default function FlashCard() {
     const Flashcard = props => {
 
-    const {id: setId} = useParams();
+    // const {id: setId} = useParams();
 
-    const {loading, data} = useQuery(QUERY_ME, {
-        variables: {id: setId}
-    })
+    // const {loading, data} = useQuery(QUERY_ME, {
+    //     variables: {id: setId}
+    // })
 
-    const set = data?.set || {};
+    // const set = data?.set || {};
 
-    if (loading) {
-        return <div>Loading...</div>;
-      }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    //   }
     //  // ///query stuff
     let userCards = [];
-    const {data} = useQuery(QUERY_ME);
+    const {data} = useQuery(QUERY_SET);
     console.log(data);
     if(data){
-        userCards = data.me.sets.cards;
+        userCards = data.sets.cards;
+        console.log(data);
     }
     console.log(userCards);
 
     
-
+//grab a set //map over cards to grab question and answer
     return (
 
         <div>
-            {userCards.map(cards => {
-                return(
+            {userCards.cards.map(sets => {
+                return (
+                    
                 <Card>
                 <Card.Body>
                 <div className="question">
@@ -50,6 +52,9 @@ import {QUERY_SET} from '../../utils/queries';
                  </Card.Body> 
                 </Card>
                 )
+                
+               
+                
             })}
             
             
