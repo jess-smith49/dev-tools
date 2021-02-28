@@ -13,17 +13,19 @@ export default function CTA() {
             <Container fluid className="cta">
                 <Row className="cta-wrapper">
                     <Col>
-                        <div className="cta-text">
-                            <p>
-                                The up and coming flashcard app for aspiring web developers.
+                        <div className="cta-text-wrapper">
+                            <div className="cta-text">
+                                <p>
+                                    The up and coming flashcard app for aspiring web developers.
                     </p>
-                        </div>
-                        <div className="cta-buttons">
-                            <div className="cta-btn">
-                                <Link to="/signup">Create an Account </Link>
                             </div>
-                            <div className="cta-btn">
-                                <Link to="/login">Login </Link>
+                            <div className="cta-buttons">
+                                <div className="cta-btn">
+                                    <Link to="/signup">Create an Account </Link>
+                                </div>
+                                <div className="cta-btn">
+                                    <Link to="/login">Login </Link>
+                                </div>
                             </div>
                         </div>
                     </Col>
@@ -34,9 +36,6 @@ export default function CTA() {
                     </Col>
                 </Row>
             </Container>
-            <div className="testimonials">
-                <Testimonials />
-            </div>
         </section>
 
     )

@@ -56,23 +56,30 @@ header {
 .cta {
     text-align: center;
     overflow: auto;
-    background: $gradient;
-    height: 60vh;  
+   // background: $gradient;
+    height: 100vh;  
 
     
     &-text {
-        padding-top: 10%;
+        padding: 10% 3% 0 3%;
         p {
-        font-family: $reg-text;
-        font-size: 20pt;
+        font-family: $fancy-font;
+        color: $yellow;
+        font-size: 25pt;
         line-height: 1.5em;
-        text-shadow: 10px 10px 8px #000;
         margin-left: 0;
+      }
+
+      &-wrapper {
+        margin: 3% 0 0 3%;
+        background-color: $blue;
+        overflow: auto;
+        border-radius: 15px;
       }
     }
 
     .img {
-        padding: 30pt;
+        padding-top: 3%;
 
         img {
             max-width:100%;
@@ -81,7 +88,7 @@ header {
     }
 
     &-buttons {
-        padding-top: 10%;
+        padding: 10% 0 10% 0;
     }
     &-btn {
         list-style: none;
@@ -244,8 +251,27 @@ header {
                 background: rgba(68, 157, 209, 0.5);
                 border: none;
                 border-radius: 15px;
+                // transform-style: preserve-3d;
+                // transition: all 0.7s ease;
+
+                // &:hover {
+                //     transform: rotateY(-180deg);
+                // }
+                
+                // .question {
+                //     animation: rotateWord 3s forwards;
+                //     -webkit-animation: rotateWord 3.0s forwards;
+                //     backface-visibility: hidden;
+
+                // }
+
+                // .answer {
+                //     transform: rotateY(180deg);
+                    
+                // }
             }
-         }
+
+           
 
         .set-body {
             padding: 3%;
@@ -262,7 +288,9 @@ header {
      }
  
 
+    }
 
+   
 //media queries
 
 //large phones

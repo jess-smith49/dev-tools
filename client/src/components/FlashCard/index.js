@@ -13,15 +13,10 @@ export default function FlashCard() {
             <Card>
                 <Card.Body>
                 <div className="question">
-                Add an onlick event to flip over card. Card inversed colors when flipped. 
-                 </div>
-                 <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-                 </Card.Body> 
-            </Card>
-            <Card>
-                <Card.Body>
-                <div className="question">
                     This is a question
+                 </div>
+                 <div classname="answer">
+                     This is an answer
                  </div>
                  <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
                  </Card.Body> 

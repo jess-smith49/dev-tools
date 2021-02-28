@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { QUERY_ME, QUERY_SEED_SET } from '../../utils/queries';
 import { useQuery } from '@apollo/react-hooks';
+import { Card, Title } from 'react-bootstrap';
 
 function Set() {
     // functionality to create a card and add cards to set
@@ -28,22 +29,19 @@ function Set() {
             <div className="seededSets">
                 <h1> Test out these decks! </h1>
                 <div>
-                    {setSeeds.seededSets.map(seeds => {
-                        return (
-                            <div key={seeds._id}>
+                        {setSeeds.seededSets.map(seeds => {
+                            <Card key={seeds._id}>
                                 <h1>{seeds.setName}</h1>
-                            </div>
-                        )
-                    })}
+                            </Card>
+                         })}
                     
                 </div>
             </div>
             {userData.sets? (userData.sets?.map(set => {
-                return (
-                    <div key={set._id}>
+                    <Card key={set._id}>
                         <h1>{set.setName}</h1>
-                    </div>
-                )
+                    </Card>
+                
             })) : (
                 <p> You have not created a set yet</p>
             )}
