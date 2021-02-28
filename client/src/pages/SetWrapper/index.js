@@ -16,7 +16,7 @@ export default  function CardSet (){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // const {id: setId} = useParams();
+     const {id: setId} = useParams();
 
     // const {loading, data} = useQuery(QUERY_SET, {
     //     variables: {id: setId}
@@ -34,7 +34,7 @@ export default  function CardSet (){
     // console.log(userCards);
 
     //mutations
-    const[formState, setFormState] = useState({question: '', answer: ''});
+    const[formState, setFormState] = useState({id: setId, question: '', answer: ''});
     const [addCard, {error}] = useMutation(ADD_CARD);
 
     const handleChange = e => {
@@ -53,7 +53,7 @@ export default  function CardSet (){
         
         try{
             await addCard({
-                variables: {...formState}
+                variables: {...formState, setId}
             });
 
             setFormState('')
