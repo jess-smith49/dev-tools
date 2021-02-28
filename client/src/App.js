@@ -19,6 +19,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Set from "./components/Set"
 import FlashCard from './components/FlashCard';
 
+
 const client = new ApolloClient({
   request: operation => {
     const token = localStorage.getItem('id_token');
@@ -35,7 +36,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Set />
+      <AddCard />
        <Router>
         <div>
         <Switch>
