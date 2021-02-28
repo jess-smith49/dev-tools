@@ -11,17 +11,17 @@ import {QUERY_SET} from '../../utils/queries';
 //export default function FlashCard() {
     const Flashcard = props => {
 
-    // const {id: setId} = useParams();
+    const {id: setId} = useParams();
 
-    // const {loading, data} = useQuery(QUERY_ME, {
-    //     variables: {}
-    // })
+    const {loading, data} = useQuery(QUERY_ME, {
+        variables: {id: setId}
+    })
 
-    // const set = data?.set || {};
+    const set = data?.set || {};
 
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    //   }
+    if (loading) {
+        return <div>Loading...</div>;
+      }
     //  // ///query stuff
     let userCards = [];
     const {data} = useQuery(QUERY_ME);
