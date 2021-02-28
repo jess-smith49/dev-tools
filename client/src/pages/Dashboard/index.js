@@ -6,6 +6,7 @@ import CreateSet from '../../components/AddSet';
 import {ADD_SET} from '../../utils/mutations';
 import {QUERY_ME} from '../../utils/queries';
 import { useMutation, useQuery } from '@apollo/react-hooks';
+import Set from '../../components/Set';
 
 
 
@@ -55,18 +56,20 @@ export default function Dashboard() {
            handleClose();
    
        }
+
     return (
         <div>
             <Header />
         <section className="dash">
-
             <CardDeck className="dash-wrap">
+            <Set />
             {userSets.map(set => {
                 return (
-                    <Card md={2}>
+                    <Card md={2} key={set._id}>
                 <Card.Body>
                     {/* in the router add id after /flashcards/(idparamter) */}
-                    <Link to='/flashcards'>{set.setName}</Link>
+                    <Link to={`/flashcards/${set._id}`}>{set.setName}</Link>
+                    {/* <Link to='/flashcards'>{set.setName}</Link> */}
                 </Card.Body>
             </Card>
                 )})}

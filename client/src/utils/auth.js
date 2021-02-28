@@ -41,6 +41,7 @@ class AuthService {
  
     addSet(setName) {
         localStorage.setItem('setName', setName)
+        window.location.assign(`/flashcard/${setName._id}`)
     }
 }
 

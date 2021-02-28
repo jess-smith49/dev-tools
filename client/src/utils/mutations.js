@@ -44,15 +44,15 @@ export const ADD_SET = gql `
 export const ADD_CARD = gql `
     mutation addCard($setId: ID!, $question: String!, $answer: String!){
         addCard(setId: $setId, question: $question, answer: $answer){
-            set {
+           
                 _id
                 setName
-                card {
+                cards {
                     _id
                     question
                     answer
                 }
-            }
+            
         }
     }
     `

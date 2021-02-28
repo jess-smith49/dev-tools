@@ -17,6 +17,8 @@ import Dashboard from './pages/Dashboard'
 import SetWrapper from './pages/SetWrapper';
 import 'react-multi-carousel/lib/styles.css';
 import Set from "./components/Set"
+import FlashCard from './components/FlashCard';
+
 
 const client = new ApolloClient({
   request: operation => {
@@ -34,7 +36,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Set />
        <Router>
         <div>
         <Switch>
@@ -47,7 +48,7 @@ function App() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
-          <Route path="/flashcards">
+          <Route path="/flashcards/:id" >
             <SetWrapper />
           </Route>
           <Route path="/">
