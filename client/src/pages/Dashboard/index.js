@@ -1,3 +1,4 @@
+// linking react, react middle ware, bootstrap templets, mutations, apollo middle ware and queries. 
 import React, { useState } from 'react'
 import {Link, Router} from 'react-router-dom';
 import Header from '../../components/Header';
@@ -8,7 +9,7 @@ import {QUERY_ME} from '../../utils/queries';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
 
-
+// Initial state. 
 export default function Dashboard() {
     const [show, setShow] = useState(false);
 
@@ -18,7 +19,7 @@ export default function Dashboard() {
     // render seeded cards
 
         let userSets = [];
-    //query stuff
+    //query data
         const {data} = useQuery(QUERY_ME);
         console.log(data);
         if(data){
@@ -26,10 +27,10 @@ export default function Dashboard() {
         };
         console.log(userSets);
 
-       //mutation stuff
+       //mutation declaired
        const [setName, setText] = useState('');
        const [addSet, {error}] = useMutation(ADD_SET);
-   
+        // setting data on change. 
        const handleChange = e => {
            const {name, value} = e.target;
            console.log(setName);
@@ -45,7 +46,7 @@ export default function Dashboard() {
                    variables: {setName}
                });
                console.log(setName)
-               
+               // removing user input from form after event. 
                setText('')
            }
            catch(e) {
@@ -55,6 +56,7 @@ export default function Dashboard() {
            handleClose();
    
        }
+       // returning jsk
     return (
         <div>
             <Header />

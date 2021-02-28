@@ -1,5 +1,7 @@
+// linking react middleware. 
 const {gql} = require('apollo-server-express');
 
+// declaring query definations. 
 const typeDefs = gql `
 type User {
     _id: ID
@@ -41,7 +43,7 @@ type Mutation {
 }
 
 `
-
+// making queries visable to rest of app. 
 module.exports = typeDefs;
 
 

@@ -1,3 +1,4 @@
+// linking react, react middle ware, bootstrap templets, mutations, apollo middle ware and queries. 
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Testimonials from '../../components/Testimonials';
@@ -5,7 +6,7 @@ import Header from '../../components/Header';
 import Photo from '../../assets/images/5.png'
 import { Col, Row, Container } from 'react-bootstrap'
 
-
+// returning jsk 
 export default function CTA() {
     return (
         <section className="landing-container">

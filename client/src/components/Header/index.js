@@ -1,8 +1,10 @@
+// linking react middleware, user auth, and mutation files. 
 import React from 'react';
 import Auth from '../../utils/auth';
 import { Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
+// returning jsk
 export default function Header() {
     function showNavigation() {
         if (Auth.loggedIn()) {

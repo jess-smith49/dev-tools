@@ -1,8 +1,9 @@
+// linking react middleware, and bootstrap. 
 import React from 'react';
 import { Card,  CardGroup, } from 'react-bootstrap';
 
 
-
+// Declaring and return testimonies array. 
 export default function Testimonials () {
    
 
@@ -21,7 +22,7 @@ export default function Testimonials () {
       },
 
     ]
-
+    // returning jsk
     return (
        <CardGroup>
          {tests.map((test, i) => (

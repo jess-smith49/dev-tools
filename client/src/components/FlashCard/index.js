@@ -1,8 +1,10 @@
+// linking react middleware, user auth, and mutation files. 
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
+// returning card and jsx
 export default function FlashCard() {
 
 

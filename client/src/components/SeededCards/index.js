@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_SET } from '../../utils/queries'
 
+// seeding initial cards. 
 function SeededCards({ setName }) {
     const [initialSet, setInitialSet] = useState();
     const { loading, data } = useQuery(QUERY_SET);
     const cardData = data?.cards;
     console.log(cardData)
-
+    // returning jsk
     return (
         <section>
             {cardData.map((cardSeeds) => {

@@ -1,16 +1,17 @@
+// linking react, react middle ware and bootstrap templets. 
 import { React, useState } from 'react';
 import { CardGroup, Card, Modal, Button, CardDeck } from 'react-bootstrap';
 import FlashCard from '../../components/FlashCard';
 import Header from '../../components/Header';
 
 
-
+// declaring initial state and card sets. 
 export default function CardSet() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    // returning jsk. 
     return (
         <section className="set-wrap">
             <Header />

@@ -1,3 +1,4 @@
+// linking react middleware, user auth, and mutation files. 
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { ADD_CARD } from '../../utils/mutations';

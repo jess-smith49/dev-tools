@@ -1,5 +1,7 @@
+// linking mongoose and extending model 
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+// linking middle ware
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
@@ -31,7 +33,7 @@ const userSchema = new Schema(
         ]
     }
 );
-
+// updating and rehashing updated password.
 userSchema.pre('save', async function(next) {
     if (this.isNew || this.isModified('password')) {
       const saltRounds = 10;
@@ -40,11 +42,12 @@ userSchema.pre('save', async function(next) {
   
     next();
   });
-  
+  // verifying password is accetable. 
 userSchema.methods.isCorrectPassword = async function(password) {
     return bcrypt.compare(password, this.password);
   };
 
-
+// declaring card as model 
 const User = mongoose.model('User', userSchema);
+// exporting to make visable to entire app
 module.exports = User;

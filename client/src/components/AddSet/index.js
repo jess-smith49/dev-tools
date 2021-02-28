@@ -1,3 +1,4 @@
+// linking react middleware, user auth, and mutation files. 
 import React, {useState, formState} from 'react';
 import { Card, Button, Modal, ModalBody } from 'react-bootstrap';
 import Auth from '../../utils/auth';
@@ -20,7 +21,7 @@ export default function CreateSet() {
     //form state
     const [formState, setFormState] = useState({ set: '', question: '', answer: ''})
 
-
+    // form submition event 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -35,14 +36,14 @@ export default function CreateSet() {
         } catch (err) {
             console.error(err);
         }
-
+        // remove user input after event handler. 
         setFormState({
             set: '',
             question: '',
             answer: ''
         });
     };
-
+        // jsx returned 
         return (
             <>
             <Modal show={show} onHide={handleClose}>

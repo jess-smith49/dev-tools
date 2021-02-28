@@ -13,6 +13,7 @@ db.once("open", async () => {
   await Card.deleteMany();
   await Sets.deleteMany();
 
+  // Seeding Html cards
   const htmlCards = await Card.insertMany([
         {
           question: "What is HTML?",
@@ -56,7 +57,7 @@ db.once("open", async () => {
         }
     
   ]);
-
+  // seeding js cards
   const jsCards = await Card.insertMany([
         {
             question: "What is JavaScript?",
@@ -99,7 +100,7 @@ db.once("open", async () => {
             answer: "Attributes-  provide more details on an element like id, type, value etc. Property-  is the value assigned to the property like type='text', value='Name' etc."
         }
   ]);
-
+  // seeding react cards
   const reactCards = await Card.insertMany([
         {
             question: "What is React?",
@@ -142,15 +143,17 @@ db.once("open", async () => {
             answer: "React Router is a powerful routing library built on top of React, which helps in adding new screens and flows to the application."
           }
   ])
-
+// seeding sets
   const sets = await Sets.insertMany([
     { setName: "test-deck-Html", cards: htmlCards },
     { setName: "test-deck-JavaScript", cards: jsCards },
     { setName: "test-deck-React", cards: reactCards },
   ]);
+  // verifying sets were seeded
   console.log("sets seeded");
-
+  // verifying cards wer seeded
   console.log("cards seeded");
+
   // deleted current users.
   await User.deleteMany();
   // add seed users
@@ -164,7 +167,9 @@ db.once("open", async () => {
     email: "jerry@testmail.com",
     password: "password6789",
   });
+  // veriying users were seeded 
   console.log("users seeded");
+  // once database is seeded, exit. 
   process.exit();
 });
 

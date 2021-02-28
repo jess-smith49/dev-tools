@@ -1,3 +1,4 @@
+// linking react, react middle ware, bootstrap templets, mutations and apollo middle ware. 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
@@ -6,7 +7,7 @@ import { ADD_USER } from '../../utils/mutations';
 import Header from '../../components/Header'
 
 
-
+// declaring initial signup state. 
 const SignUp = () => {
 
     const [formState, setFormState] = useState({ username: '', email: '', password: '' })
@@ -22,7 +23,7 @@ const SignUp = () => {
             [name]: value
         })
     };
-
+    // handling signup form submission. 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -37,7 +38,7 @@ const SignUp = () => {
         } catch (err) {
             console.error(err);
         }
-
+        // removing user input date after form submission. 
         setFormState({
             username: '',
             email: '',
@@ -46,7 +47,7 @@ const SignUp = () => {
     };
 
 
-
+    // returning jsk. 
     return (
         <section>
             <Header />
@@ -106,5 +107,5 @@ const SignUp = () => {
     //     </section>  
     //   )
 };
-
+// making signup function visable to entire app. 
 export default SignUp;

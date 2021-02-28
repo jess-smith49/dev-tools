@@ -1,12 +1,17 @@
+// linking react
 import React from 'react';
+// linking react middlware
 import ReactDOM from 'react-dom';
+// linking stylesheet
 import './index.css';
+// linking bootstra style templates. 
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'semantic-ui-css/semantic.min.css';
 
 import App from './App';
+// linking service worker
 import * as serviceWorker from './serviceWorker';
-
+// declaring react dom
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -17,4 +22,6 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+// extending service worker. 
 serviceWorker.register();

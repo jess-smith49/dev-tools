@@ -1,5 +1,6 @@
+// linking graphql and extending model. 
 import gql from 'graphql-tag'
-
+// declaring root query
 export const QUERY_ME = gql`
 {
     me {
@@ -18,6 +19,7 @@ export const QUERY_ME = gql`
     }
 }
 `
+// declaring seed set query
 export const QUERY_SETSEED = gql`
     query getSeededSets {
         set {
@@ -67,6 +69,7 @@ export const QUERY_SETSEED = gql`
 
 // `
 
+// declaring set query
 export const QUERY_SET = gql`
     query getOneSet($setName: String!) {
         set(setName: $setName) {
@@ -81,6 +84,7 @@ export const QUERY_SET = gql`
     }
 `;
 
+// declaring seeded set query.  
 export const QUERY_SEED_SET = gql`
     query getSeededSets {
         seededSets {

@@ -1,7 +1,11 @@
+// linking models
 const { User, Sets, Card } = require('../models');
+// linking react middle ware
 const { AuthenticationError } = require('apollo-server-express');
+// linking auth file
 const { signToken } = require('../utils/auth');
 
+// declaring reslovers. 
 const resolvers = {
     // me query
     Query: {
@@ -20,6 +24,7 @@ const resolvers = {
 
                 return user;
             }
+            // verifying log in. 
             throw new AuthenticationError("Not logged in");
         },
         // remove these two in final code
@@ -31,10 +36,13 @@ const resolvers = {
         // sets: async() => {
         //     return await Sets.find().populate('cards');
         // },
+
+        // set query
         set: async (parents, { setName }) => {
             return await Sets.findOne({ setName })
                 .populate('cards');
         },
+        // seeding sets
         seededSets: async (parents) => {
             // const populateSeedSet = async() => {
             return await Sets.find(
@@ -43,11 +51,13 @@ const resolvers = {
         }
     },
 
+    // declaring mutations. 
     Mutation: {
         //login mutation
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
+            // verifying user
             if (!user) {
                 throw new AuthenticationError('No User Found With That Email');
             }
@@ -61,13 +71,13 @@ const resolvers = {
             return { token, user };
 
         },
-
+        // creating user
         addUser: async (parent, args) => {
             const user = await User.create(args)
             const token = signToken(user);
             return { token, user };
         },
-
+        // creating a set
         addSet: async (parent, args, context) => {
             if (context.user) {
                 const newSet = await Sets.create(args);
@@ -81,7 +91,7 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!')
 
         },
-
+        // creating a card
         addCard: async (parent, { setId, question, answer }, context) => {
 
             if (context.user) {
@@ -96,7 +106,7 @@ const resolvers = {
             }
 
         },
-
+        // deleteing a set. 
         removeSet: async (parent, { setId }, context) => {
             if (context.user) {
                 const deleteSet = await Sets.findOneAndDelete({ _id: setId });
@@ -110,7 +120,7 @@ const resolvers = {
                 return updatedUser;
             }
         },
-
+        // deleting a card.
         removeCard: async (parent, { setId, cardId }, context) => {
             if (context.user) {
                 const deleteCard = await Card.findOneAndDelete({ _id: cardId });
@@ -129,5 +139,5 @@ const resolvers = {
 
 };
 
-
+// exporting to app
 module.exports = resolvers;

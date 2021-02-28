@@ -1,3 +1,4 @@
+// linking react middleware, user auth, and mutation files. 
 import React, { useEffect, useState } from 'react';
 import { QUERY_ME, QUERY_SEED_SET } from '../../utils/queries';
 import { useQuery } from '@apollo/react-hooks';

@@ -1,3 +1,4 @@
+// linking react, react middle ware, mutations, apollo middleware and queries. 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
@@ -5,7 +6,7 @@ import Auth from '../../utils/auth';
 import { LOGIN_USER } from '../../utils/mutations';
 import Header from '../../components/Header';
 
-
+// login function and initial state. 
 const Login = props => {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [Login, { error }] = useMutation(LOGIN_USER);
@@ -19,7 +20,7 @@ const Login = props => {
             [name]: value
         });
     };
-
+    // event handler for form submission. 
     const handleFormSubmit = async e => {
         e.preventDefault();
 
@@ -35,14 +36,14 @@ const Login = props => {
         catch (e) {
             console.log(e)
         }
-
+        // remove user input after event handler. 
         setFormState({
             email: '',
             password: ''
         })
     }
 
-
+    // returning jsk. 
     return (
         <section>
             <Header />
@@ -82,5 +83,5 @@ const Login = props => {
         </section>
     )
 };
-
+// making login function visable to entire app. 
 export default Login;
