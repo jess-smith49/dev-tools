@@ -10,20 +10,25 @@ h1 {
 }
 
 header {
+  background: -webkit-gradient(linear, right top, left top, from(#FFEB50), color-stop(#00CF9C), to(#449DD1));
   background: linear-gradient(to left, #FFEB50, #00CF9C, #449DD1);
 }
+
 header .h-lg {
   margin-top: 0%;
   font-size: 30pt;
   padding: 10pt;
 }
+
 header .navbar-nav {
   padding-left: 70%;
 }
+
 header ul li {
   float: right;
   list-style: none;
 }
+
 header ul a {
   text-decoration: none;
   color: #00CF9C;
@@ -33,29 +38,41 @@ header ul a {
 .cta {
   text-align: center;
   overflow: auto;
-  background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
-  height: 60vh;
+  height: 100vh;
 }
+
 .cta-text {
-  padding-top: 10%;
+  padding: 10% 3% 0 3%;
 }
+
 .cta-text p {
-  font-family: "Roboto", sans-serif;
-  font-size: 20pt;
+  font-family: "Righteous", cursive;
+  color: #FFEB50;
+  font-size: 25pt;
   line-height: 1.5em;
-  text-shadow: 10px 10px 8px #000;
   margin-left: 0;
 }
-.cta .img {
-  padding: 30pt;
+
+.cta-text-wrapper {
+  margin: 3% 0 0 3%;
+  background-color: #449DD1;
+  overflow: auto;
+  border-radius: 15px;
 }
+
+.cta .img {
+  padding-top: 3%;
+}
+
 .cta .img img {
   max-width: 100%;
   height: auto;
 }
+
 .cta-buttons {
-  padding-top: 10%;
+  padding: 10% 0 10% 0;
 }
+
 .cta-btn {
   list-style: none;
   background-color: rgba(255, 255, 255, 0.4);
@@ -65,21 +82,27 @@ header ul a {
   font-family: "Roboto", sans-serif;
   font-size: 13pt;
   padding: 10px;
-  box-shadow: 10px 10px 8px #000;
+  -webkit-box-shadow: 10px 10px 8px #000;
+          box-shadow: 10px 10px 8px #000;
 }
+
 .cta-btn a {
   text-decoration: none;
 }
+
 .cta-btn a:visited {
   color: #449DD1;
 }
+
 .cta-btn:hover {
-  box-shadow: 3px 5px 8px #000 inset;
+  -webkit-box-shadow: 3px 5px 8px #000 inset;
+          box-shadow: 3px 5px 8px #000 inset;
 }
 
 .testimonials {
   text-align: center;
 }
+
 .testimonials .card {
   background-color: #FFEB50;
   font-family: "Righteous", cursive;
@@ -89,22 +112,30 @@ header ul a {
   height: 150px;
   width: 150px;
 }
+
 .testimonials .card-group {
   padding: 1em;
 }
 
 .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-content: center;
-  justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   overflow: auto;
   text-align: center;
   padding: 10%;
 }
+
 .form h2 {
   font-family: "Righteous", cursive;
   color: #FFEB50;
 }
+
 .form-container {
   width: 100%;
   height: 100%;
@@ -112,8 +143,10 @@ header ul a {
   padding: 15pt;
   overflow: auto;
   border-radius: 15px;
-  box-shadow: 10px 10px 8px #808080;
+  -webkit-box-shadow: 10px 10px 8px #808080;
+          box-shadow: 10px 10px 8px #808080;
 }
+
 .form-input {
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -123,9 +156,11 @@ header ul a {
   border-radius: 15px;
   width: 75%;
 }
+
 .form-input:active {
   background-color: white;
 }
+
 .form button {
   border-radius: 15px;
   border: none;
@@ -137,6 +172,7 @@ header ul a {
   margin-top: 50px;
   width: 100%;
 }
+
 .footer-container {
   position: fixed;
   bottom: 0;
@@ -145,8 +181,11 @@ header ul a {
 .dash-wrap {
   padding: 5%;
   text-align: center;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .dash .card {
   max-width: 400px;
   min-height: 200px;
@@ -154,6 +193,7 @@ header ul a {
   background-color: #449DD1;
   padding-top: 2%;
 }
+
 .dash .card-body .btn {
   font-family: "Righteous", cursive;
   background: none;
@@ -161,30 +201,42 @@ header ul a {
   font-size: 20pt;
   border: none;
 }
+
 .dash a {
   font-family: "Righteous", cursive;
   font-size: 20pt;
   color: #FFEB50;
 }
+
 .dash .create {
   background-color: #FFEB50;
 }
+
 .dash button {
   background: none;
 }
 
 .set-wrap {
+  background: -webkit-gradient(linear, left top, right top, from(#FFEB50), color-stop(#00CF9C), to(#449DD1));
   background: linear-gradient(to right, #FFEB50, #00CF9C, #449DD1);
   text-align: center;
 }
+
 .set-wrap h1 {
   font-size: 30pt;
 }
+
 .set-wrap .card-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
+
 .set-wrap .card-wrap .card {
   margin: 20px 10px 20px 10px;
   min-height: 200px;
@@ -194,10 +246,12 @@ header ul a {
   border: none;
   border-radius: 15px;
 }
-.set-wrap .set-body {
+
+.set-wrap .card-wrap .set-body {
   padding: 3%;
 }
-.set-wrap button {
+
+.set-wrap .card-wrap button {
   background-color: #FFEB50;
   color: #449DD1;
   border: none;
@@ -207,10 +261,14 @@ header ul a {
 
 @media only screen and (min-width: 414px) {
   .cta {
-    align-content: center;
-    justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
+
 @media only screen and (min-width: 1228px) {
   .cta h1 {
     font-size: 100px;
@@ -219,3 +277,4 @@ header ul a {
     font-size: 30pt;
   }
 }
+/*# sourceMappingURL=index.css.map */

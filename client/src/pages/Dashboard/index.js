@@ -6,6 +6,7 @@ import CreateSet from '../../components/AddSet';
 import {ADD_SET} from '../../utils/mutations';
 import {QUERY_ME} from '../../utils/queries';
 import { useMutation, useQuery } from '@apollo/react-hooks';
+import Set from '../../components/Set';
 
 
 
@@ -60,8 +61,8 @@ export default function Dashboard() {
         <div>
             <Header />
         <section className="dash">
-
             <CardDeck className="dash-wrap">
+            <Set />
             {userSets.map(set => {
                 return (
                     <Card md={2} key={set._id}>
