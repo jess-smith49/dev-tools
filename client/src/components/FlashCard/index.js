@@ -2,47 +2,59 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import { useMutation, useQuery } from '@apollo/react-hooks';
+import {QUERY_ME} from '../../utils/queries';
+import { useParams } from 'react-router-dom';
+import {QUERY_SET} from '../../utils/queries';
 
-export default function FlashCard() {
 
+//export default function FlashCard() {
+    const Flashcard = props => {
 
+    const {id: setId} = useParams();
 
-    return (
+    const {loading, data} = useQuery(QUERY_SET, {
+        variables: {id: setId}
+    })
 
+    const set = data?.set || {};
+    // ///query stuff
+    // let userCards = [];
+    // const {data} = useQuery(QUERY_ME);
+    // console.log(data);
+    // if(data){
+    //     userCards = data.me.sets.cards;
+    // }
+    // console.log(userCards);
+
+    // return (
+
+    //     // <div>
+    //     //     {userCards.map(cards => {
+    //     //         return(
+    //     //         <Card>
+    //     //         <Card.Body>
+    //     //         {/* <div className="question">
+    //     //          {cards.question}
+    //     //          </div>
+    //     //          <div>
+    //     //          {cards.answer}
+    //     //          </div> */}
+    //     //          <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
+    //     //          </Card.Body> 
+    //     //         </Card>
+    //     //         )
+    //     //     })}
+            
+            
+    //     // </div>
+
+    // );
+    return(
         <div>
-            <Card>
-                <Card.Body>
-                <div className="question">
-                Add an onlick event to flip over card. Card inversed colors when flipped. 
-                 </div>
-                 <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-                 </Card.Body> 
-            </Card>
-            <Card>
-                <Card.Body>
-                <div className="question">
-                    This is a question
-                 </div>
-                 <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-                 </Card.Body> 
-            </Card>
-            <Card>
-                <Card.Body>
-                <div className="question">
-                    This is a question
-                 </div>
-                 <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-                 </Card.Body> 
-            </Card>
-            <Card>
-                <Card.Body>
-                <div className="question">
-                    Add an onlick event to flip over card. Card inversed colors when flipped. 
-                 </div>
-                 <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-                 </Card.Body> 
-            </Card>
+            <h1>Test</h1>
         </div>
-
-    );
+    )
 };
+
+export default Flashcard;

@@ -68,6 +68,7 @@ export default function Dashboard() {
                 <Card.Body>
                     {/* in the router add id after /flashcards/(idparamter) */}
                     <Link to={`/flashcards/${set._id}`}>{set.setName}</Link>
+                    {/* <Link to='/flashcards'>{set.setName}</Link> */}
                 </Card.Body>
             </Card>
                 )})}
