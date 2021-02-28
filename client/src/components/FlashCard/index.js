@@ -37,7 +37,9 @@ const Flashcard = props => {
     return (
 
         <div>
+
             {userCards.map(cardObj => cardObj.cards.map(card => {
+
 
             return (
                             
