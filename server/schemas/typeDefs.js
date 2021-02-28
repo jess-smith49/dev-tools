@@ -27,7 +27,7 @@ type Auth {
 
 type Query {
     me: User
-    set(setName: String!): Sets
+    set(_id: ID!): Sets
     seededSets: [Sets]
 }
 
