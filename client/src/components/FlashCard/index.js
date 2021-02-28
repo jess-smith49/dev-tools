@@ -24,10 +24,10 @@ import {QUERY_SET} from '../../utils/queries';
     //   }
     //  // ///query stuff
     let userCards = [];
-    const {data} = useQuery(QUERY_SET);
+    const {data} = useQuery(QUERY_ME);
     console.log(data);
     if(data){
-        userCards = data.sets.cards;
+        userCards = data.me.sets;
         console.log(data);
     }
     console.log(userCards);
@@ -37,13 +37,13 @@ import {QUERY_SET} from '../../utils/queries';
     return (
 
         <div>
-            {userCards.cards.map(sets => {
+            {userCards.map(sets => {
                 return (
                     
-                <Card>
+                <Card key={card._id}>
                 <Card.Body>
                 <div className="question">
-                 {sets.question}
+                 {sets.cards}
                  </div>
                  <div>
                  {sets.answer}
@@ -59,6 +59,8 @@ import {QUERY_SET} from '../../utils/queries';
             
             
         </div>
+
+        // <div>Hello</div>
 
      );
     // return(
