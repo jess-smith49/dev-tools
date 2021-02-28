@@ -1,0 +1,300 @@
+$blue: #449DD1;
+$yellow: #FFEB50;
+$green: #00CF9C;
+$gradient: linear-gradient(to right, $yellow, $green, $blue );
+$fancy-font: 'Righteous', cursive;
+$reg-text: 'Roboto', sans-serif;
+$pop-shadow: 0 2px 2px #4486d1, 
+-2px 5px 1px #44b5d1, 
+-6px 11px 0px #44c0d1;
+//media breakpoints
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap');
+
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: $fancy-font;
+        color: $yellow;
+        text-shadow: $pop-shadow;
+}
+
+
+header {
+    background: linear-gradient(to left, $yellow, $green, $blue );
+    
+    
+    .h-lg {
+        margin-top: 0%;
+        font-size: 30pt;
+        padding: 10pt;
+    }
+    
+    .navbar-nav {
+        padding-left: 70%;
+    }
+    
+    ul {
+        li {
+            float: right;
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: $green;
+            padding: 10px;
+            
+        }
+        
+    }
+    
+}
+
+.cta {
+    text-align: center;
+    overflow: auto;
+    background: $gradient;
+    height: 60vh;  
+
+    
+    &-text {
+        padding-top: 10%;
+        p {
+        font-family: $reg-text;
+        font-size: 20pt;
+        line-height: 1.5em;
+        text-shadow: 10px 10px 8px #000;
+        margin-left: 0;
+      }
+    }
+
+    .img {
+        padding: 30pt;
+
+        img {
+            max-width:100%;
+            height:auto;
+        }
+    }
+
+    &-buttons {
+        padding-top: 10%;
+    }
+    &-btn {
+        list-style: none;
+        background-color: rgba(255,255,255,0.4);
+        color: $blue;
+        border-radius: 15px;
+        margin: 20pt;
+        font-family: $reg-text;
+        font-size: 13pt;
+        padding: 10px;
+        box-shadow: 10px 10px 8px #000;
+       
+        a {
+            text-decoration: none;
+
+             &:visited {
+                 color: $blue;
+             }
+        }
+
+        &:hover {
+            box-shadow: 3px 5px 8px #000 inset;
+           
+        }
+    }
+}
+
+.testimonials {
+
+    text-align: center;
+    .card {
+        background-color: $yellow;
+        font-family: $fancy-font;
+        padding-top: 5%;
+        color: $green;
+        margin: 1em;
+        height: 150px;
+        width: 150px;
+
+        &-group {
+            padding: 1em;
+        }
+
+
+    }
+}
+
+.form {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+    text-align: center;
+    padding: 10%;
+    h2 {
+        font-family: $fancy-font;
+        color: $yellow;
+    }
+    &-container {
+        width: 100%;
+        height: 100%;
+        background-color: $blue;
+        padding: 15pt;
+        overflow: auto;
+        border-radius: 15px;
+        box-shadow: 10px 10px 8px #808080;
+    }
+
+    &-input {
+        text-align: center;
+        font-family: $reg-text;
+        margin: 10pt;
+        background-color:  rgba(255,255,255,0.4);
+        border: none;
+        border-radius: 15px;
+        width: 75%;
+
+        &:active {
+            background-color: white;
+        }
+    }
+
+    button {
+        border-radius: 15px;
+        border: none;
+        background-color: $yellow;
+        color: $blue;
+    }
+}
+
+.footer {
+    margin-top: 50px;
+    width: 100%;
+     &-container {
+        position: fixed;
+        bottom: 0;
+    }
+}
+
+.dash {
+    &-wrap {
+        padding: 5%;
+        text-align: center;
+        justify-content: center;
+        
+    }
+        .card {
+            max-width: 400px;
+            min-height: 200px;
+            border-radius: 15px;
+            background-color: $blue;
+            padding-top: 2%;
+            
+            &-body {
+                
+                .btn {
+                    font-family: $fancy-font;
+                    background: none;
+                    color: $green;
+                    font-size: 20pt;
+                    border: none;
+                }
+                
+            }
+        }
+
+        a {
+            font-family: $fancy-font;
+            font-size: 20pt;
+            color: $yellow;
+        }
+
+        .create {
+            background-color: $yellow;
+
+        }
+        button {
+            background: none;
+        }
+}
+
+.set-wrap {
+    background: $gradient;
+    text-align: center;
+
+    h1 {
+        font-size: 30pt;
+    }
+    
+    .card-wrap {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+            .card{
+                margin: 20px 10px 20px 10px;
+                min-height: 200px;
+                max-width: 400px;
+                min-width: 200px;
+                background: rgba(68, 157, 209, 0.5);
+                border: none;
+                border-radius: 15px;
+            }
+         }
+
+        .set-body {
+            padding: 3%;
+        }
+
+            button {
+                background-color: $yellow;
+                color: $blue;
+                border: none;
+                height: 75px;
+                width: 100px
+            };
+        
+     }
+ 
+
+
+//media queries
+
+//large phones
+@media only screen and (min-width: 414px) {
+    .cta {
+        align-content: center;
+        justify-content: center;
+    }
+
+    // .testimonials {
+    //     display: flex;
+    //     align-content: center;
+    //     justify-content: center;
+    // }
+}
+
+//tablets
+@media only screen and (min-width: 799px) {
+
+    
+  
+}
+
+//desktop
+@media only screen and (min-width: 1228px) {
+
+    .cta {
+        h1 {
+            font-size: 100px;
+        }
+        &-text {
+            font-size: 30pt
+        }
+    }
+}

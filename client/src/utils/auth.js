@@ -1,8 +1,10 @@
 import decode from 'jwt-decode';
 
 class AuthService {
-    //not sure with this top part for getting prfile in example
-
+    getProfile() {
+        return decode(this.getToken());
+      }
+    
     loggedIn(){
         const token = this.getToken();
         return !!token && !this.isTokenExpired(token);
@@ -28,13 +30,17 @@ class AuthService {
     }
 
     login(idToken){
-        lovalStorage.setItem('id_token', idToken);
-        window.location.assign('/');
+        localStorage.setItem('id_token', idToken);
+        window.location.assign('/dashboard');
     }
 
     logout() {
         localStorage.removeItem('id_token');
         window.location.assign('/');
+    }
+ 
+    addSet(setName) {
+        localStorage.setItem('setName', setName)
     }
 }
 

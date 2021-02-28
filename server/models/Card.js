@@ -1,4 +1,4 @@
-const {Schema} = require('mongoose');
+const {Schema, model} = require('mongoose')
 
 const cardSchema = new Schema (
     {
@@ -10,8 +10,10 @@ const cardSchema = new Schema (
         answer: {
             type: String,
             required: true
-        }
+        },
+
     }
 );
 
-module.exports = cardSchema;
+const Card = model('Card', cardSchema);
+module.exports = Card;
