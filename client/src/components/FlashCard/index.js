@@ -11,54 +11,56 @@ import {QUERY_SET} from '../../utils/queries';
 //export default function FlashCard() {
     const Flashcard = props => {
 
-    const {id: setId} = useParams();
+    // const {id: setId} = useParams();
 
-    const {loading, data} = useQuery(QUERY_ME, {
-        variables: {}
-    })
+    // const {loading, data} = useQuery(QUERY_ME, {
+    //     variables: {}
+    // })
 
-    const set = data?.set || {};
+    // const set = data?.set || {};
 
-    if (loading) {
-        return <div>Loading...</div>;
-      }
-    // // ///query stuff
-    // let userCards = [];
-    // const {data} = useQuery(QUERY_ME);
-    // console.log(data);
-    // if(data){
-    //     userCards = data.me.sets.cards;
-    // }
-    // console.log(userCards);
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    //   }
+    //  // ///query stuff
+    let userCards = [];
+    const {data} = useQuery(QUERY_ME);
+    console.log(data);
+    if(data){
+        userCards = data.me.sets.cards;
+    }
+    console.log(userCards);
 
-    // return (
+    
 
-    //     <div>
-    //         {userCards.map(cards => {
-    //             return(
-    //             <Card>
-    //             <Card.Body>
-    //             <div className="question">
-    //              {set.question}
-    //              </div>
-    //              <div>
-    //              {set.answer}
-    //              </div>
-    //              <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-    //              </Card.Body> 
-    //             </Card>
-    //             )
-    //         })}
-            
-            
-    //     </div>
+    return (
 
-    // );
-    return(
         <div>
-            <h1>Test</h1>
+            {userCards.map(cards => {
+                return(
+                <Card>
+                <Card.Body>
+                <div className="question">
+                 {sets.question}
+                 </div>
+                 <div>
+                 {sets.answer}
+                 </div>
+                 <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
+                 </Card.Body> 
+                </Card>
+                )
+            })}
+            
+            
         </div>
-    )
+
+     );
+    // return(
+    //     <div>
+    //         <h1>Test</h1>
+    //     </div>
+    // )
 };
 
 export default Flashcard;
