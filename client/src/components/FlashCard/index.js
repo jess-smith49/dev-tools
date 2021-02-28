@@ -13,12 +13,16 @@ import {QUERY_SET} from '../../utils/queries';
 
     const {id: setId} = useParams();
 
-    const {loading, data} = useQuery(QUERY_SET, {
-        variables: {id: setId}
+    const {loading, data} = useQuery(QUERY_ME, {
+        variables: {}
     })
 
     const set = data?.set || {};
-    // ///query stuff
+
+    if (loading) {
+        return <div>Loading...</div>;
+      }
+    // // ///query stuff
     // let userCards = [];
     // const {data} = useQuery(QUERY_ME);
     // console.log(data);
@@ -29,25 +33,25 @@ import {QUERY_SET} from '../../utils/queries';
 
     // return (
 
-    //     // <div>
-    //     //     {userCards.map(cards => {
-    //     //         return(
-    //     //         <Card>
-    //     //         <Card.Body>
-    //     //         {/* <div className="question">
-    //     //          {cards.question}
-    //     //          </div>
-    //     //          <div>
-    //     //          {cards.answer}
-    //     //          </div> */}
-    //     //          <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
-    //     //          </Card.Body> 
-    //     //         </Card>
-    //     //         )
-    //     //     })}
+    //     <div>
+    //         {userCards.map(cards => {
+    //             return(
+    //             <Card>
+    //             <Card.Body>
+    //             <div className="question">
+    //              {set.question}
+    //              </div>
+    //              <div>
+    //              {set.answer}
+    //              </div>
+    //              <FontAwesomeIcon icon={faAngleDoubleRight} className="fa-3x"/>
+    //              </Card.Body> 
+    //             </Card>
+    //             )
+    //         })}
             
             
-    //     // </div>
+    //     </div>
 
     // );
     return(
